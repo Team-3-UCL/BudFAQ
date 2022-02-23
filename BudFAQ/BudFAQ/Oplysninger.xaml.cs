@@ -68,5 +68,15 @@ namespace BudFAQ
                 UseShellExecute = true
             });
         }
+
+        private void btn_Artikel1_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("Artikel.xaml", UriKind.Relative));
+        }
+
+        private void btn_Artikel2_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("Artikel.xaml", UriKind.Relative));
+        }
     }
 }
