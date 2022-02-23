@@ -38,7 +38,7 @@ namespace BudFAQ
             Process.Start(new ProcessStartInfo
             {
                 FileName = "https://budweg.com/external/catalog-files/023010N.pdf",
-                UseShellExecute = true // Sets to use the operating system shell(default browser) to start the process.
+                UseShellExecute = true
             });
         }
 
@@ -46,8 +46,8 @@ namespace BudFAQ
         {
             Process.Start(new ProcessStartInfo
             {
-                FileName = "https://www.youtube.com/watch?v=DaSXcqwuTJM&t=34s",
-                UseShellExecute = true // Sets to use the operating system shell(default browser) to start the process.
+                FileName = "https://www.youtube.com/watch?v=DaSXcqwuTJM&t",
+                UseShellExecute = true
             });
         }
 
@@ -55,8 +55,8 @@ namespace BudFAQ
         {
             Process.Start(new ProcessStartInfo
             {
-                FileName = "https://www.youtube.com/watch?v=aN5gmPanFTA&t=348s",
-                UseShellExecute = true // Sets to use the operating system shell(default browser) to start the process.
+                FileName = "https://www.youtube.com/watch?v=aN5gmPanFTA&t",
+                UseShellExecute = true
             });
         }
 
@@ -65,7 +65,7 @@ namespace BudFAQ
             Process.Start(new ProcessStartInfo
             {
                 FileName = "https://www.youtube.com/watch?v=wO3JkuslgAQ",
-                UseShellExecute = true // Sets to use the operating system shell(default browser) to start the process.
+                UseShellExecute = true
             });
         }
     }
