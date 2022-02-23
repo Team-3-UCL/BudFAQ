@@ -5,34 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BudFAQ"
         mc:Ignorable="d"
-        Title="MainWindow" Height="900 " Width="400">
+        Title="MainWindow" Height="900 " Width="450">
     <Grid>
-        <Rectangle HorizontalAlignment="Center" Height="48" Margin="0,-8,0,0" Stroke="Black" VerticalAlignment="Top" Width="264" RenderTransformOrigin="-1.92,-2"
+        <Rectangle HorizontalAlignment="Center" Height="40" Stroke="Black" VerticalAlignment="Top" Width="264" RenderTransformOrigin="-1.92,-2"
           Fill="Black"/>
-        <Image HorizontalAlignment="Left" Height="85" Margin="161,653,0,0" VerticalAlignment="Top" Width="75"
+        <Image HorizontalAlignment="Center" Height="51" Margin="0,775,0,0" VerticalAlignment="Top" Width="50"
                Source="https://fsymbols.com/images/phone-icon.png"/>
         <Label Content="Kundeservice"
-               FontSize="28"
-               HorizontalAlignment="Left" Margin="112,728,0,0" VerticalAlignment="Top"/>
+               FontSize="20"
+               HorizontalAlignment="Center" Margin="0,823,0,0" VerticalAlignment="Top"/>
         <Label Content="BudSearch"
+               HorizontalAlignment="Left"
                FontWeight="UltraBlack"
                Foreground="Green"
-            FontSize="34"
-            HorizontalAlignment="Left" Margin="13,66,0,0" VerticalAlignment="Top"/>
+               FontSize="34"
+               Margin="113,70,0,0" VerticalAlignment="Top"/>
         <ListBox x:Name="lb_Search" 
                  Background="LightGray"                 
-                 Margin="58,258,58,256"
+                 Margin="40,239,40,164"
                  Foreground="Green"/>
-        <TextBox x:Name="tb_Search" HorizontalAlignment="Center" Margin="0,184,0,0" TextWrapping="NoWrap" 
-                 FontSize="24"
-                 VerticalAlignment="Top" Width="284" Height="44" AutomationProperties.HelpText="Indsæt keywords"
+        <TextBox x:Name="tb_Search" HorizontalAlignment="Left" Margin="58,174,0,0" TextWrapping="NoWrap" 
+                 BorderBrush="Black"
+                 BorderThickness="1,1,1,1"
+                 FontSize="18"
+                 Padding="10,0,0,0"
+                 TextAlignment="Left"
+                 VerticalContentAlignment="Center"
+                 Foreground="Gray"
+                 VerticalAlignment="Top" Width="257" Height="39"
                  Text="Indsæt keywords"/>
         <Image HorizontalAlignment="Left"
                Source="https://www.iconsdb.com/icons/preview/green/search-3-xxl.png"
-               Height="56" Margin="201,67,0,0" VerticalAlignment="Top" Width="46" RenderTransformOrigin="1.34,0.459"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="198,152,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-        <Frame x:Name="Main" Margin="0,126,0,104"/>
-        <Label Content="&lt;" HorizontalAlignment="Left" Margin="102,790,0,0" VerticalAlignment="Top" FontSize="42" Foreground="Green"/>
-        <Label Content=">" HorizontalAlignment="Left" Margin="266,790,0,0" VerticalAlignment="Top" FontSize="42" RenderTransformOrigin="0.784,0.438" Foreground="Green"/>
+               Height="30" Margin="300,83,0,0" VerticalAlignment="Top" Width="30" RenderTransformOrigin="1.34,0.459"/>
+        <Button Content="Søg" Background="white" Foreground="Green" FontSize="20" FontWeight="DemiBold" HorizontalAlignment="Left" Margin="327,174,0,0" VerticalAlignment="Top" Click="Button_Click" Width="65" Height="39"
+                BorderBrush="Black" BorderThickness="1,1,1,1"
+                VerticalContentAlignment="Center"
+                Padding="0,-2,0,0"
+                />
+        <Frame x:Name="Main" NavigationUIVisibility="Hidden" Margin="0,130,0,0"/>
     </Grid>
 </Window>

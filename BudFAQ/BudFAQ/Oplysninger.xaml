@@ -5,27 +5,30 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BudFAQ"
       mc:Ignorable="d" 
-      d:DesignHeight="900" d:DesignWidth="400"
+      d:DesignHeight="770" d:DesignWidth="450"
       Background="White"
       Title="Oplysninger">
 
     <Grid>
-        <Label Content="BudSearch"
-            FontWeight="UltraBlack"
-            Foreground="Green"
-            FontSize="34"
-            HorizontalAlignment="Left" Margin="13,66,0,0" VerticalAlignment="Top"/>
-        <Image HorizontalAlignment="Left"
-            Source="https://www.iconsdb.com/icons/preview/green/search-3-xxl.png"
-            Height="56" Margin="201,67,0,0" VerticalAlignment="Top" Width="46" RenderTransformOrigin="1.34,0.459"/>
-        <Rectangle HorizontalAlignment="Center" Height="48" Margin="0,-8,0,0" Stroke="Black" VerticalAlignment="Top" Width="264" RenderTransformOrigin="-1.92,-2"
-            Fill="Black"/>
-        <TextBlock>
-            <Hyperlink NavigateUri="https://budweg.com/external/catalog-files/023010N.pdf">
-            Manual Download
-            </Hyperlink>
-        </TextBlock>
 
+        <Label Content="Manual" Foreground="Green" FontWeight="SemiBold" FontSize="24" HorizontalAlignment="Left" Margin="40,38,0,0" VerticalAlignment="Top" Height="51" Width="108"/>
+        <Label Content="Manual Download PDF" Foreground="RoyalBlue" FontSize="14" HorizontalAlignment="Left" Margin="44,88,0,0" VerticalAlignment="Top" Height="38" Width="258"/>
+        <Button x:Name="btn_Manual" Content="" BorderBrush="White" Background="Transparent" HorizontalAlignment="Left" Margin="37,86,0,0" VerticalAlignment="Top" Height="32" Width="370" Opacity="0" Cursor="Hand" Click="btn_Manual_Click"/>
 
+        <Label Content="Video" Foreground="Green" FontWeight="SemiBold" FontSize="24" HorizontalAlignment="Left" Margin="40,205,0,0" VerticalAlignment="Top" Height="51" Width="87"/>
+        <Label Content="How to Repair a Floating Single Piston Caliper" Foreground="RoyalBlue" FontSize="14" HorizontalAlignment="Left" Margin="44,250,0,0" VerticalAlignment="Top" Height="30" Width="294"/>
+        <Button x:Name="btn_Video1" Content="" BorderBrush="White" Background="Transparent" HorizontalAlignment="Left" Margin="37,248,0,0" VerticalAlignment="Top" Height="32" Width="370" Opacity="0" Cursor="Hand" Click="btn_Video1_Click"/>
+        <Label Content="How to Repair a Mechanical Handbrake Caliper" Foreground="RoyalBlue" FontSize="14" HorizontalAlignment="Left" Margin="44,285,0,0" VerticalAlignment="Top" Height="30" Width="308"/>
+        <Button x:Name="btn_Video2" Content="" BorderBrush="White" Background="Transparent" HorizontalAlignment="Left" Margin="37,283,0,0" VerticalAlignment="Top" Height="32" Width="370" Opacity="0" Cursor="Hand" Click="btn_Video2_Click"/>
+        <Label Content="How to repair the piston and rubber parts on EPB Calipers" Foreground="RoyalBlue" FontSize="14" HorizontalAlignment="Left" Margin="44,320,0,0" VerticalAlignment="Top" Height="30" Width="380"/>
+        <Button x:Name="btn_Video3" Content="" BorderBrush="White" Background="Transparent" HorizontalAlignment="Left" Margin="37,318,0,0" VerticalAlignment="Top" Height="32" Width="387" Opacity="0" Cursor="Hand" Click="btn_Video3_Click"/>
+
+        <Label Content="Artikler" Foreground="Green" FontWeight="SemiBold" FontSize="24" HorizontalAlignment="Left" Margin="40,414,0,0" VerticalAlignment="Top" Height="51" Width="108"/>
+        <Label Content="Hvornår skal bremsekaliber udskiftes?" Foreground="RoyalBlue" FontSize="14" HorizontalAlignment="Left" Margin="44,460,0,0" VerticalAlignment="Top" Height="30" Width="258"/>
+        <Button Content="" BorderBrush="White" Background="Transparent" HorizontalAlignment="Left" Margin="37,458,0,0" VerticalAlignment="Top" Height="32" Width="370" Click="Button_Click" Opacity="0" Cursor="Hand"/>
+        <Label Content="Hvornår skal bremsekaliber udskiftes?" Foreground="RoyalBlue" FontSize="14" HorizontalAlignment="Left" Margin="44,490,0,0" VerticalAlignment="Top" Height="30" Width="258"/>
+        <Button Content="" BorderBrush="White" Background="Transparent" HorizontalAlignment="Left" Margin="37,488,0,0" VerticalAlignment="Top" Height="32" Width="370" Click="Button_Click" Opacity="0" Cursor="Hand"/>
+        <Label Content="Hvornår skal bremsekaliber udskiftes?" Foreground="RoyalBlue" FontSize="14" HorizontalAlignment="Left" Margin="44,516,0,0" VerticalAlignment="Top" Height="30" Width="258"/>
+        <Button Content="" BorderBrush="White" Background="Transparent" HorizontalAlignment="Left" Margin="37,514,0,0" VerticalAlignment="Top" Height="32" Width="370" Click="Button_Click" Opacity="0" Cursor="Hand"/>
     </Grid>
 </Page>

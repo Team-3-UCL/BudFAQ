@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Diagnostics;
 
 namespace BudFAQ
 {
@@ -23,6 +24,49 @@ namespace BudFAQ
         public Oplysninger()
         {
             InitializeComponent();
+
+        }
+
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("Artikel.xaml", UriKind.Relative));
+        }
+
+        private void btn_Manual_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "https://budweg.com/external/catalog-files/023010N.pdf",
+                UseShellExecute = true // Sets to use the operating system shell(default browser) to start the process.
+            });
+        }
+
+        private void btn_Video1_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "https://www.youtube.com/watch?v=DaSXcqwuTJM&t=34s",
+                UseShellExecute = true // Sets to use the operating system shell(default browser) to start the process.
+            });
+        }
+
+        private void btn_Video2_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "https://www.youtube.com/watch?v=aN5gmPanFTA&t=348s",
+                UseShellExecute = true // Sets to use the operating system shell(default browser) to start the process.
+            });
+        }
+
+        private void btn_Video3_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "https://www.youtube.com/watch?v=wO3JkuslgAQ",
+                UseShellExecute = true // Sets to use the operating system shell(default browser) to start the process.
+            });
         }
     }
 }
