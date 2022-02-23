@@ -16,19 +16,13 @@ using System.Windows.Shapes;
 namespace BudFAQ
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Oplysninger.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Oplysninger : Page
     {
-        public MainWindow()
+        public Oplysninger()
         {
-            //Lad os se om det virker zZzZzZzZ
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Main.Content = new Oplysninger();
         }
     }
 }

@@ -1,0 +1,31 @@
+﻿<Page x:Class="BudFAQ.Oplysninger"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BudFAQ"
+      mc:Ignorable="d" 
+      d:DesignHeight="900" d:DesignWidth="400"
+      Background="White"
+      Title="Oplysninger">
+
+    <Grid>
+        <Label Content="BudSearch"
+            FontWeight="UltraBlack"
+            Foreground="Green"
+            FontSize="34"
+            HorizontalAlignment="Left" Margin="13,66,0,0" VerticalAlignment="Top"/>
+        <Image HorizontalAlignment="Left"
+            Source="https://www.iconsdb.com/icons/preview/green/search-3-xxl.png"
+            Height="56" Margin="201,67,0,0" VerticalAlignment="Top" Width="46" RenderTransformOrigin="1.34,0.459"/>
+        <Rectangle HorizontalAlignment="Center" Height="48" Margin="0,-8,0,0" Stroke="Black" VerticalAlignment="Top" Width="264" RenderTransformOrigin="-1.92,-2"
+            Fill="Black"/>
+        <TextBlock>
+            <Hyperlink NavigateUri="https://budweg.com/external/catalog-files/023010N.pdf">
+            Manual Download
+            </Hyperlink>
+        </TextBlock>
+
+
+    </Grid>
+</Page>
