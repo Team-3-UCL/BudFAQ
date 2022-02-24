@@ -25,10 +25,5 @@ namespace BudFAQ
             //Lad os se om det virker zZzZzZzZ
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Main.Content = new Oplysninger();
-        }
     }
 }

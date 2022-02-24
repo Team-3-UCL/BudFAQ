@@ -78,5 +78,10 @@ namespace BudFAQ
         {
             this.NavigationService.Navigate(new Uri("Artikel.xaml", UriKind.Relative));
         }
+
+        private void btn_Back_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.GoBack();
+        }
     }
 }

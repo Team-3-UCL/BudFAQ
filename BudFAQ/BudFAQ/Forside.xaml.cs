@@ -16,18 +16,18 @@ using System.Windows.Shapes;
 namespace BudFAQ
 {
     /// <summary>
-    /// Interaction logic for Artikel.xaml
+    /// Interaction logic for Forside.xaml
     /// </summary>
-    public partial class Artikel : Page
+    public partial class Forside : Page
     {
-        public Artikel()
+        public Forside()
         {
             InitializeComponent();
         }
 
-        private void btn_Back_Click(object sender, RoutedEventArgs e)
+        private void btn_Search_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.GoBack();
+            this.NavigationService.Navigate(new Uri("Oplysninger.xaml", UriKind.Relative));
         }
     }
 }

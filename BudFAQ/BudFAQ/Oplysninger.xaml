@@ -12,7 +12,7 @@
     <Grid>
 
         <Label Content="Manual" Foreground="Green" FontWeight="SemiBold" FontSize="24" HorizontalAlignment="Left" Margin="37,40,0,0" VerticalAlignment="Top" Height="51" Width="108"/>
-        <TextBlock Text="Manual Download PDF" TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,85,0,0" VerticalAlignment="Top" Height="17" Width="258"/>
+        <TextBlock Text="Manual Download PDF" TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,85,0,0" VerticalAlignment="Top" Height="17" Width="154"/>
         <Button x:Name="btn_Manual" Content="" BorderBrush="White" Background="Transparent" HorizontalAlignment="Left" Margin="37,86,0,0" VerticalAlignment="Top" Height="18" Width="154" Opacity="0" Cursor="Hand" Click="btn_Manual_Click"/>
 
         <Label Content="Video" Foreground="Green" FontWeight="SemiBold" FontSize="24" HorizontalAlignment="Left" Margin="39,157,0,0" VerticalAlignment="Top" Height="51" Width="87"/>
@@ -30,6 +30,6 @@
         <Button x:Name="btn_Artikel2" Content="" BorderBrush="White" Background="Transparent" HorizontalAlignment="Left" Margin="37,449,0,0" VerticalAlignment="Top" Height="15" Width="265" Opacity="0" Cursor="Hand" Click="btn_Artikel2_Click"/>
         <TextBlock Text="Hvornår skal bremsekaliber udskiftes?" TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,482,0,0" VerticalAlignment="Top" Height="18" Width="258"/>
         <Button x:Name="btn_Artikel3" Content="" BorderBrush="White" Background="Transparent" HorizontalAlignment="Left" Margin="37,485,0,0" VerticalAlignment="Top" Height="15" Width="251" Opacity="0" Cursor="Hand"/>
-        <Button Content="Tilbage" Background="Green" Foreground="White" BorderBrush="Transparent" Padding="20,2" HorizontalAlignment="Center" Margin="0,657,0,0" VerticalAlignment="Top" Width="126" Height="29"/>
+        <Button x:Name="btn_Back" Content="Tilbage" Background="Green" Foreground="White" BorderBrush="Transparent" Padding="20,2" HorizontalAlignment="Center" Margin="0,657,0,0" VerticalAlignment="Top" Width="126" Height="29" Click="btn_Back_Click"/>
     </Grid>
 </Page>
