@@ -18,7 +18,17 @@
         <ListBox x:Name="lb_Search" 
             Background="LightGray"                 
             Margin="43,121,37,168"
-            Foreground="Green"/>
+            Foreground="Green">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock Text="{Binding LbArticel}"/>
+                        <TextBlock Text=" - " />
+                        <TextBlock Text="{Binding LbInfo}" />
+
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         <TextBox x:Name="tb_Search" HorizontalAlignment="Left" Margin="61,56,0,0" TextWrapping="NoWrap" 
             BorderBrush="Black"
             BorderThickness="1,1,1,1"
@@ -28,7 +38,7 @@
             VerticalContentAlignment="Center"
             Foreground="Gray"
             VerticalAlignment="Top" Width="257" Height="39"
-            Text="Indsæt keywords"/>
+            Text="Indsæt keywords" />
         <Button x:Name="btn_Search" Content="Søg" Background="white" Foreground="Green" FontSize="20" FontWeight="DemiBold" HorizontalAlignment="Left" Margin="330,56,0,0" VerticalAlignment="Top" Width="65" Height="39"
             BorderBrush="Black" BorderThickness="1,1,1,1"
             VerticalContentAlignment="Center"

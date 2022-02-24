@@ -13,12 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace BudFAQ
 {
     /// <summary>
     /// Interaction logic for Forside.xaml
     /// </summary>
-    public partial class Forside : Page
+    /// 
+    
+
+public partial class Forside : Page
     {
         public Forside()
         {
@@ -28,6 +32,14 @@ namespace BudFAQ
         private void btn_Search_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Uri("Oplysninger.xaml", UriKind.Relative));
+        }
+
+        public void LbArticel()
+        {
+            try
+            {
+                
+            }
         }
     }
 }
