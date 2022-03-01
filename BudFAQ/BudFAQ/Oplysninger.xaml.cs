@@ -28,10 +28,8 @@ namespace BudFAQ
         }
 
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Article_RequestNavigate(object sender, RoutedEventArgs e)
         {
-            // s'g videoer
-            // s'g artikler
             this.NavigationService.Navigate(new Uri("Artikel.xaml", UriKind.Relative));
         }
 
@@ -43,6 +41,11 @@ namespace BudFAQ
                 UseShellExecute = true
             });
             e.Handled = true;
+        }
+
+        private void btn_Back_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.GoBack();
         }
     }
 }
