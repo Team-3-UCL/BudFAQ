@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
 
 
 namespace BudFAQ
@@ -24,6 +25,13 @@ namespace BudFAQ
 
 public partial class Forside : Page
     {
+
+        SqlConnection sqlCon = new SqlConnection("Server = 10.56.8.36; Database=P1DB03; User Id = P1-03; Password=OPENDB_03;");
+
+        SqlCommand cmd;
+        SqlDataReader dr;
+
+
         public Forside()
         {
             InitializeComponent();
@@ -34,12 +42,15 @@ public partial class Forside : Page
             this.NavigationService.Navigate(new Uri("Oplysninger.xaml", UriKind.Relative));
         }
 
-        public void LbArticel()
+        public void lb_Search(object sender, RoutedEventArgs r)
         {
-            try
-            {
-                
-            }
+
+            cmd = new SqlCommand();
+            sqlCon.Open();
+            cmd.Connection = sqlCon;
+            cmd.CommandText = "SELECT * FROM dbo.Artikel";
+
+
         }
     }
 }

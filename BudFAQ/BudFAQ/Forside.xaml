@@ -18,17 +18,10 @@
         <ListBox x:Name="lb_Search" 
             Background="LightGray"                 
             Margin="43,121,37,168"
-            Foreground="Green">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <TextBlock Text="{Binding LbArticel}"/>
-                        <TextBlock Text=" - " />
-                        <TextBlock Text="{Binding LbInfo}" />
+            Foreground="Green"
+                 
+                 />
 
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
         <TextBox x:Name="tb_Search" HorizontalAlignment="Left" Margin="61,56,0,0" TextWrapping="NoWrap" 
             BorderBrush="Black"
             BorderThickness="1,1,1,1"
