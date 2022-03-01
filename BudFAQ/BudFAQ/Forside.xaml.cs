@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
+using System.Data;
+using System.Configuration;
+
 
 
 namespace BudFAQ
@@ -49,6 +52,9 @@ public partial class Forside : Page
             sqlCon.Open();
             cmd.Connection = sqlCon;
             cmd.CommandText = "SELECT * FROM dbo.Artikel";
+
+            
+
 
 
         }
