@@ -52,6 +52,7 @@ public partial class Forside : Page
             sqlCon.Open();
             cmd.Connection = sqlCon;
             cmd.CommandText = "SELECT * FROM dbo.Artikel";
+            
 
             
 
