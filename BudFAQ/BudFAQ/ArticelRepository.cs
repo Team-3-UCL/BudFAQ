@@ -9,47 +9,11 @@ namespace BudFAQ
 {
     class ArticelRepository
     {
-        public ArticelRepository()
-        {
-            // l;ser alle artikler som er i databasen
-            // tilf'jer den til articles i repoen
-        }
-
-
-        public static void ReadOrderData(string connectionStringm)
-        {
-            
-
-            string queryString =
-                "SELECT City FROM dbo.CINEMA WHERE CinemaID = 3;";
-
-            using (SqlConnection connection =
-                       new SqlConnection(connectionStringm))
-            {
-                SqlCommand command =
-                    new SqlCommand(queryString, connection);
-                connection.Open();
-
-                SqlDataReader reader = command.ExecuteReader();
-
-                // Call Read before accessing data.
-                while (reader.Read())
-                {
-                    Console.WriteLine(String.Format("{0}", reader[0]));
-                    
-                }
-
-                // Call Close when done reading.
-                reader.Close();
-            }
-        }
-
-        private List<Article> _articles;
+        private List<Article> articles;
         string connectionString = "Server = 10.56.8.36; Database=P1DB03;User Id = P1-03; Password=OPENDB_03;";
         public ArticelRepository()
         {
-            _articles = new List<Article>();
-
+            articles = new List<Article>();
 
             using (SqlConnection connection = new(connectionString))
             {
@@ -65,18 +29,17 @@ namespace BudFAQ
                         article.Text = reader["ArticleText"].ToString();
                         article.Link = reader["ArticleLink"].ToString();
 
-                        _articles.Add(article);
+                        articles.Add(article);
 
                     }
                 }
-
-
             }
         }
-
-
-
-
+    
+        public List<Article> GetAll()
+        {
+            return articles;
+        }
     }
 }
 

@@ -10,11 +10,11 @@
       Title="Forside">
 
     <Grid>
-        <Image HorizontalAlignment="Left" Height="51" Margin="203,657,0,0" VerticalAlignment="Top" Width="50"
-            Source="https://fsymbols.com/images/phone-icon.png"/>
-        <Label Content="Kundeservice"
+        <Image HorizontalAlignment="Left" Height="51" Margin="203,607,0,0" VerticalAlignment="Top" Width="50"
+            Source="https://fsymbols.com/images/phone-icon.png" RenderTransformOrigin="0.555,-0.284"/>
+        <Label Content="Kundeservice&#xD;&#xA;+ 01 23 45 67"
             FontSize="20"
-            HorizontalAlignment="Left" Margin="165,705,0,0" VerticalAlignment="Top"/>
+            HorizontalAlignment="Left" Margin="165,662,0,0" VerticalAlignment="Top" Height="64"/>
         <ListBox x:Name="lb_SearchWords" 
             Background="LightGray"                 
             Margin="43,121,37,168"

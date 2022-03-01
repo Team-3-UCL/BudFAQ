@@ -35,55 +35,14 @@ namespace BudFAQ
             this.NavigationService.Navigate(new Uri("Artikel.xaml", UriKind.Relative));
         }
 
-        private void btn_Manual_Click(object sender, RoutedEventArgs e)
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
             Process.Start(new ProcessStartInfo
             {
-                FileName = "https://budweg.com/external/catalog-files/023010N.pdf",
+                FileName = e.Uri.AbsoluteUri,
                 UseShellExecute = true
             });
-        }
-
-        private void btn_Video1_Click(object sender, RoutedEventArgs e)
-        {
-            Process.Start(new ProcessStartInfo
-            {
-                FileName = "https://www.youtube.com/watch?v=DaSXcqwuTJM&t",
-                UseShellExecute = true
-            });
-        }
-
-        private void btn_Video2_Click(object sender, RoutedEventArgs e)
-        {
-            Process.Start(new ProcessStartInfo
-            {
-                FileName = "https://www.youtube.com/watch?v=aN5gmPanFTA&t",
-                UseShellExecute = true
-            });
-        }
-
-        private void btn_Video3_Click(object sender, RoutedEventArgs e)
-        {
-            Process.Start(new ProcessStartInfo
-            {
-                FileName = "https://www.youtube.com/watch?v=wO3JkuslgAQ",
-                UseShellExecute = true
-            });
-        }
-
-        private void btn_Artikel1_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new Uri("Artikel.xaml", UriKind.Relative));
-        }
-
-        private void btn_Artikel2_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new Uri("Artikel.xaml", UriKind.Relative));
-        }
-
-        private void btn_Back_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.GoBack();
+            e.Handled = true;
         }
     }
 }

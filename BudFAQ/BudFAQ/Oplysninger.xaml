@@ -11,25 +11,31 @@
 
     <Grid>
 
-        <Label Content="Manual" Foreground="Green" FontWeight="SemiBold" FontSize="24" HorizontalAlignment="Left" Margin="37,40,0,0" VerticalAlignment="Top" Height="51" Width="108"/>
-        <TextBlock Text="Manual Download PDF" TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,85,0,0" VerticalAlignment="Top" Height="17" Width="154"/>
-        <Button x:Name="btn_Manual" Content="" BorderBrush="White" Background="Transparent" HorizontalAlignment="Left" Margin="37,86,0,0" VerticalAlignment="Top" Height="18" Width="154" Opacity="0" Cursor="Hand" Click="btn_Manual_Click"/>
+        <Label Content="Video" Foreground="Green" FontWeight="SemiBold" FontSize="24" HorizontalAlignment="Left" Margin="39,50,0,0" VerticalAlignment="Top" Height="51" Width="87"></Label>
 
-        <Label Content="Video" Foreground="Green" FontWeight="SemiBold" FontSize="24" HorizontalAlignment="Left" Margin="39,157,0,0" VerticalAlignment="Top" Height="51" Width="87"/>
-        <TextBlock Text="How to Repair a Floating Single Piston Caliper" TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,202,0,0" VerticalAlignment="Top" Height="20" Width="294"/>
-        <Button x:Name="btn_Video1" Content="" BorderBrush="White" Background="Transparent" HorizontalAlignment="Left" Margin="37,205,0,0" VerticalAlignment="Top" Height="17" Width="301" Opacity="0" Cursor="Hand" Click="btn_Video1_Click"/>
-        <TextBlock Text="How to Repair a Mechanical Handbrake Caliper" TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,237,0,0" VerticalAlignment="Top" Height="18" Width="308"/>
-        <Button x:Name="btn_Video2" Content="" BorderBrush="White" Background="Transparent" HorizontalAlignment="Left" Margin="37,238,0,0" VerticalAlignment="Top" Height="17" Width="301" Opacity="0" Cursor="Hand" Click="btn_Video2_Click"/>
-        <TextBlock Text="How to repair the piston and rubber parts on EPB Calipers" TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,272,0,0" VerticalAlignment="Top" Height="18" Width="380"/>
-        <Button x:Name="btn_Video3" Content="" BorderBrush="White" Background="Transparent" HorizontalAlignment="Left" Margin="37,273,0,0" VerticalAlignment="Top" Height="17" Width="370" Opacity="0" Cursor="Hand" Click="btn_Video3_Click"/>
+        <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,90,0,0" VerticalAlignment="Top" Height="20" Width="294">
+            <Hyperlink NavigateUri="https://www.youtube.com/watch?v=DaSXcqwuTJM" RequestNavigate="Hyperlink_RequestNavigate">How to Repair a Floating Single Piston Caliper</Hyperlink>
+        </TextBlock>
+        
+        <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,117,0,0" VerticalAlignment="Top" Height="18" Width="308">
+            <Hyperlink NavigateUri="https://www.youtube.com/watch?v=aN5gmPanFTA" RequestNavigate="Hyperlink_RequestNavigate">How to Repair a Mechanical Handbrake Caliper</Hyperlink>
+        </TextBlock>
 
-        <Label Content="Artikler" Foreground="Green" FontWeight="SemiBold" FontSize="24" HorizontalAlignment="Left" Margin="39,361,0,0" VerticalAlignment="Top" Height="51" Width="108"/>
-        <TextBlock Text="Hvornår skal bremsekaliber udskiftes?" TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,412,0,0" VerticalAlignment="Top" Height="18" Width="258"/>
-        <Button x:Name="btn_Artikel1" Content="" BorderBrush="White" Background="Transparent" HorizontalAlignment="Left" Margin="37,413,0,0" VerticalAlignment="Top" Height="17" Width="251" Click="btn_Artikel1_Click" Opacity="0" Cursor="Hand"/>
-        <TextBlock Text="Hvornår skal bremsekaliber udskiftes?" TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,447,0,0" VerticalAlignment="Top" Height="17" Width="258"/>
-        <Button x:Name="btn_Artikel2" Content="" BorderBrush="White" Background="Transparent" HorizontalAlignment="Left" Margin="37,449,0,0" VerticalAlignment="Top" Height="15" Width="265" Opacity="0" Cursor="Hand" Click="btn_Artikel2_Click"/>
-        <TextBlock Text="Hvornår skal bremsekaliber udskiftes?" TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,482,0,0" VerticalAlignment="Top" Height="18" Width="258"/>
-        <Button x:Name="btn_Artikel3" Content="" BorderBrush="White" Background="Transparent" HorizontalAlignment="Left" Margin="37,485,0,0" VerticalAlignment="Top" Height="15" Width="251" Opacity="0" Cursor="Hand"/>
-        <Button x:Name="btn_Back" Content="Tilbage" Background="Green" Foreground="White" BorderBrush="Transparent" Padding="20,2" HorizontalAlignment="Center" Margin="0,657,0,0" VerticalAlignment="Top" Width="126" Height="29" Click="btn_Back_Click"/>
+        <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,152,0,0" VerticalAlignment="Top" Height="18" Width="380">
+            <Hyperlink NavigateUri="https://www.youtube.com/watch?v=wO3JkuslgAQ" RequestNavigate="Hyperlink_RequestNavigate">How to repair the piston and rubber parts on EPB Calipers</Hyperlink>
+        </TextBlock>
+
+
+        <Label Content="Artikler" Foreground="Green" FontWeight="SemiBold" FontSize="24" HorizontalAlignment="Left" Margin="39,261,0,0" VerticalAlignment="Top" Height="51" Width="108"/>
+        <TextBlock Text="Hvornår skal bremsekaliber udskiftes?" TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,312,0,0" VerticalAlignment="Top" Height="18" Width="258"/>
+        <TextBlock Text="Hvornår skal bremsekaliber udskiftes?" TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,347,0,0" VerticalAlignment="Top" Height="17" Width="258"/>
+        <TextBlock Text="Hvornår skal bremsekaliber udskiftes?" TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,382,0,0" VerticalAlignment="Top" Height="18" Width="258"/>
+        
+
+        <Label Content="Manual" Foreground="Green" FontWeight="SemiBold" FontSize="24" HorizontalAlignment="Left" Margin="37,540,0,0" VerticalAlignment="Top" Height="51" Width="108"/>
+        <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,585,0,0" VerticalAlignment="Top" Height="17" Width="154">
+            <Hyperlink NavigateUri="https://budweg.com/external/catalog-files/023010N.pdf" RequestNavigate="Hyperlink_RequestNavigate">How to Repair a Floating Single Piston Caliper</Hyperlink>
+        </TextBlock>
+
     </Grid>
 </Page>
