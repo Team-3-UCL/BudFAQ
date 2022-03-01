@@ -30,6 +30,8 @@ namespace BudFAQ
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            // s'g videoer
+            // s'g artikler
             this.NavigationService.Navigate(new Uri("Artikel.xaml", UriKind.Relative));
         }
 

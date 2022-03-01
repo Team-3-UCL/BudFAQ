@@ -15,7 +15,7 @@
         <Label Content="Kundeservice"
             FontSize="20"
             HorizontalAlignment="Left" Margin="165,705,0,0" VerticalAlignment="Top"/>
-        <ListBox x:Name="lb_Search" 
+        <ListBox x:Name="lb_SearchWords" 
             Background="LightGray"                 
             Margin="43,121,37,168"
             Foreground="Green"

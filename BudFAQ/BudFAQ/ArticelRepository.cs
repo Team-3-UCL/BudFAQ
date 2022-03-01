@@ -9,6 +9,12 @@ namespace BudFAQ
 {
     class ArticelRepository
     {
+        public ArticelRepository()
+        {
+            // l;ser alle artikler som er i databasen
+            // tilf'jer den til articles i repoen
+        }
+
 
         public static void ReadOrderData(string connectionStringm)
         {

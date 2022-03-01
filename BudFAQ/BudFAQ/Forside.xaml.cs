@@ -43,15 +43,14 @@ public partial class Forside : Page
         private void btn_Search_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Uri("Oplysninger.xaml", UriKind.Relative));
+
+
         }
 
         public void lb_Search(object sender, RoutedEventArgs r)
         {
 
-            cmd = new SqlCommand();
-            sqlCon.Open();
-            cmd.Connection = sqlCon;
-            cmd.CommandText = "SELECT * FROM dbo.Artikel";
+           
 
             
 
