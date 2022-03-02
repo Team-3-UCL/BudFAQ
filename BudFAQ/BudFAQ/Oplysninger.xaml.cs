@@ -21,15 +21,21 @@ namespace BudFAQ
     /// </summary>
     public partial class Oplysninger : Page
     {
-        public Oplysninger()
+        public Oplysninger(List<ViewArticle> a)
         {
             InitializeComponent();
-
+            articles = new();
+            articles = a;
+            this.DataContext = this;
         }
 
+        public List<ViewArticle> articles { get; set; }
 
-        private void Article_RequestNavigate(object sender, RoutedEventArgs e)
+       
+
+        public void Article_RequestNavigate(object sender, RoutedEventArgs e)
         {
+            
             this.NavigationService.Navigate(new Uri("Artikel.xaml", UriKind.Relative));
         }
 

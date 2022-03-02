@@ -24,15 +24,41 @@ namespace BudFAQ
                 {
                     while (reader.Read())
                     {              
-                        Article article = new();
-                        article.Name = reader["ArticleName"].ToString();
-                        article.Text = reader["ArticleText"].ToString();
-                        article.Link = reader["ArticleLink"].ToString();
+                        Article article = new() {
+                            ArticleID = (int)reader["ArtikelID"],
+                            Name = reader["Title"].ToString(),
+                            Text = reader["Content"].ToString(),
+                            Link = reader["Link"].ToString()
+                        };
 
                         articles.Add(article);
 
                     }
                 }
+
+                sCmd = "Select * FROM dbo.Keywords_Artikel";
+                cmd = new(sCmd, connection);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int Id = (int)reader["ArtikelID"];
+                        string word = reader["Word"].ToString();
+
+                        foreach(Article article in articles)
+                        {
+                            if(article.ArticleID == Id)
+                            {
+                                article.Keywords.Add(word);
+                                break;
+                            }
+
+                        }
+
+                    }
+                }
+
+
             }
         }
     
@@ -40,6 +66,8 @@ namespace BudFAQ
         {
             return articles;
         }
+
+        
     }
 }
 

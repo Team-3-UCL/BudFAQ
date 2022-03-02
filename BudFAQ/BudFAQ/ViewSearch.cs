@@ -7,48 +7,59 @@ using System.Threading.Tasks;
 
 namespace BudFAQ
 {
-    class ViewSearch
+    class SearchViewModel
     {
-        // public List<Artikel> ArticlesFound;
-        // public List<Video> VideosFound;
+        private ArticelRepository articleRepository;
+        public List<ViewArticle> ArticlesFound;
+        //public list<video> videosfound;
 
-        //public ViewSearch()
+        public SearchViewModel()
+        {
+            articleRepository = new();
+            ArticlesFound = new();
+            //videosfound = new();
+        }
+
+
+
+        //private void searchforvideos(string[] keywords)
         //{
-        //    ArticlesFound = new();
-        //    VideosFound = new();
-        //}
-
-        //public void SearchQuery(string[] keyWords)
-        //{
-        //    ArticlesFound = new(); // nulstille listen
-        //    VideosFound = new(); // nulstille listen
-
-        //    SearchForVideos(keyWords);
-        //    SearchForArticles(keyWords);
-        //}
-
-        //private void SearchForVideos(string[] keyWords)
-        //{
-        //    foreach(Artikel article in ArticelRepository.GetAll())
+        //    foreach (video video in videorepository.getall())
         //    {
-        //        foreach(string kWord in keyWords)
+        //        foreach (string kword in keywords)
         //        {
-        //            if (article.keywords.contains(kWord))
-        //                ArticlesFound.Add(article);
+        //            if (video.keywords.contains(kword))
+        //                videosfound.add(article);
         //        }
         //    }
         //}
 
-        //private void SearchForArticles(string[] keyWords)
-        //{
-        //    foreach (Video video in VideoRepository.GetAll())
-        //    {
-        //        foreach (string kWord in keyWords)
-        //        {
-        //            if (video.keywords.contains(kWord))
-        //                VideosFound.Add(article);
-        //        }
-        //    }
-        //}
+        private void searchForArticles(string[] keywords)
+        {
+            foreach (Article article in articleRepository.GetAll())
+            {
+                foreach (string kword in keywords)
+                {
+                    if (article.Keywords.Contains(kword))
+                    {
+                        ViewArticle viewArticle = new() { Name = article.Name, Text = article.Text };
+
+                        ArticlesFound.Add(viewArticle);
+                        break;
+                    }
+                        
+                }
+            }
+            
+        }
+
+        public void searchquery(string[] keywords)
+        {
+            ArticlesFound = new(); // nulstille listen
+            //videosfound = new(); // nulstille listen
+
+            //searchforvideos(keywords);
+            searchForArticles(keywords);
+        }
     }
 }

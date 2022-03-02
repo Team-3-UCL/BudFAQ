@@ -13,32 +13,55 @@
 
         <Label Content="Video" Foreground="Green" FontWeight="SemiBold" FontSize="24" HorizontalAlignment="Left" Margin="39,50,0,0" VerticalAlignment="Top" Height="51" Width="87"></Label>
 
+        <ItemsControl Name="Videos">
         <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,90,0,0" VerticalAlignment="Top" Height="20" Width="294">
             <Hyperlink NavigateUri="https://www.youtube.com/watch?v=DaSXcqwuTJM" RequestNavigate="Hyperlink_RequestNavigate">How to Repair a Floating Single Piston Caliper</Hyperlink>
         </TextBlock>
         
-        <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,117,0,0" VerticalAlignment="Top" Height="18" Width="308">
+        <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,5,0,0" VerticalAlignment="Top" Height="18" Width="308">
             <Hyperlink NavigateUri="https://www.youtube.com/watch?v=aN5gmPanFTA" RequestNavigate="Hyperlink_RequestNavigate">How to Repair a Mechanical Handbrake Caliper</Hyperlink>
         </TextBlock>
 
-        <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,152,0,0" VerticalAlignment="Top" Height="18" Width="380">
-            <Hyperlink NavigateUri="https://www.youtube.com/watch?v=wO3JkuslgAQ" RequestNavigate="Hyperlink_RequestNavigate">How to repair the piston and rubber parts on EPB Calipers</Hyperlink>
+        <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,5,0,0" VerticalAlignment="Top" Height="18" Width="380">
         </TextBlock>
+        </ItemsControl>
+
+
 
 
         <Label Content="Artikler" Foreground="Green" FontWeight="SemiBold" FontSize="24" HorizontalAlignment="Left" Margin="39,261,0,0" VerticalAlignment="Top" Height="51" Width="108"/>
-        
-        <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,312,0,0" VerticalAlignment="Top" Height="18" Width="258">
-            <Hyperlink Click="Article_RequestNavigate">Hvornår skal bremsekaliber udskiftes?</Hyperlink>
-        </TextBlock>
 
-        <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,347,0,0" VerticalAlignment="Top" Height="18" Width="258">
-            <Hyperlink Click="Article_RequestNavigate">Hvornår skal bremsekaliber udskiftes?</Hyperlink>
-        </TextBlock>
+        <ItemsControl Name="Articles" ItemsSource="{Binding articles}" Margin="46,302,46,332">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,5,0,0" VerticalAlignment="Top" Height="18" Width="258">
+                        <Hyperlink Click="Article_RequestNavigate">
+                            <TextBlock Text="{Binding Name}"></TextBlock>
+                      </Hyperlink>
+                    </TextBlock>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
 
-        <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,382,0,0" VerticalAlignment="Top" Height="18" Width="258">
-            <Hyperlink Click="Article_RequestNavigate">Hvornår skal bremsekaliber udskiftes?</Hyperlink>
-        </TextBlock>
+
+
+        <!--<TextBlock x:Name="test" TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,312,0,0" VerticalAlignment="Top" Height="18" Width="258">
+                <Hyperlink Click="Article_RequestNavigate">
+                   <TextBlock x:Name="test2"  Text="Hvornår skal bremsekaliber udskiftes?"></TextBlock>
+                </Hyperlink>
+            </TextBlock>
+
+            <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,5,0,0" VerticalAlignment="Top" Height="18" Width="258">
+                <Hyperlink Click="Article_RequestNavigate">
+                    <TextBlock Text="Hvornår skal bremsekaliber udskiftes?"></TextBlock>
+                </Hyperlink>
+            </TextBlock>
+
+            <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,5,0,0" VerticalAlignment="Top" Height="18" Width="258">
+                <Hyperlink Click="Article_RequestNavigate">Hvornår skal bremsekaliber udskiftes?</Hyperlink>
+            </TextBlock>-->
+
+       
 
         <Label Content="Manual" Foreground="Green" FontWeight="SemiBold" FontSize="24" HorizontalAlignment="Left" Margin="37,540,0,0" VerticalAlignment="Top" Height="51" Width="108"/>
         <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,585,0,0" VerticalAlignment="Top" Height="17" Width="154">

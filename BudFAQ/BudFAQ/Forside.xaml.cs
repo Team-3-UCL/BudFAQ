@@ -34,28 +34,35 @@ public partial class Forside : Page
         SqlCommand cmd;
         SqlDataReader dr;
 
+        SearchViewModel mvm;
+
 
         public Forside()
         {
             InitializeComponent();
+            mvm = new();
         }
 
         private void btn_Search_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("Oplysninger.xaml", UriKind.Relative));
+            mvm.searchquery(new string[] { tb_Search.Text });
+            Oplysninger InformationPage = new Oplysninger(mvm.ArticlesFound);
+
+            //InformationPage.Articles.Items.Clear();
+
+
+
+
+
+
+            this.NavigationService.Navigate(InformationPage);
 
 
         }
 
         public void lb_Search(object sender, RoutedEventArgs r)
         {
-
-           
-
             
-
-
-
         }
     }
 }
