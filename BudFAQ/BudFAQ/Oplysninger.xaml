@@ -14,16 +14,16 @@
         <Label Content="Video" Foreground="Green" FontWeight="SemiBold" FontSize="24" HorizontalAlignment="Left" Margin="39,50,0,0" VerticalAlignment="Top" Height="51" Width="87"></Label>
 
         <ItemsControl Name="Videos">
-        <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,90,0,0" VerticalAlignment="Top" Height="20" Width="294">
+            <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,90,0,0" VerticalAlignment="Top" Height="20" Width="294">
             <Hyperlink NavigateUri="https://www.youtube.com/watch?v=DaSXcqwuTJM" RequestNavigate="Hyperlink_RequestNavigate">How to Repair a Floating Single Piston Caliper</Hyperlink>
-        </TextBlock>
-        
-        <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,5,0,0" VerticalAlignment="Top" Height="18" Width="308">
-            <Hyperlink NavigateUri="https://www.youtube.com/watch?v=aN5gmPanFTA" RequestNavigate="Hyperlink_RequestNavigate">How to Repair a Mechanical Handbrake Caliper</Hyperlink>
-        </TextBlock>
+            </TextBlock>
 
-        <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,5,0,0" VerticalAlignment="Top" Height="18" Width="380">
-        </TextBlock>
+            <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,5,0,0" VerticalAlignment="Top" Height="18" Width="308">
+            <Hyperlink NavigateUri="https://www.youtube.com/watch?v=aN5gmPanFTA" RequestNavigate="Hyperlink_RequestNavigate">How to Repair a Mechanical Handbrake Caliper</Hyperlink>
+            </TextBlock>
+
+            <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,5,0,0" VerticalAlignment="Top" Height="18" Width="380">
+            </TextBlock>
         </ItemsControl>
 
 
@@ -34,7 +34,7 @@
         <ItemsControl Name="Articles" ItemsSource="{Binding articles}" Margin="46,302,46,332">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,5,0,0" VerticalAlignment="Top" Height="18" Width="258">
+                    <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Height="18" Width="258">
                         <Hyperlink Click="Article_RequestNavigate">
                             <TextBlock Text="{Binding Name}"></TextBlock>
                       </Hyperlink>
@@ -61,14 +61,14 @@
                 <Hyperlink Click="Article_RequestNavigate">Hvornår skal bremsekaliber udskiftes?</Hyperlink>
             </TextBlock>-->
 
-       
 
-        <Label Content="Manual" Foreground="Green" FontWeight="SemiBold" FontSize="24" HorizontalAlignment="Left" Margin="37,540,0,0" VerticalAlignment="Top" Height="51" Width="108"/>
-        <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,585,0,0" VerticalAlignment="Top" Height="17" Width="154">
+
+        <Label Content="Manual" Foreground="Green" FontWeight="SemiBold" FontSize="24" HorizontalAlignment="Left" Margin="46,475,0,0" VerticalAlignment="Top" Height="51" Width="108"/>
+        <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="46,526,0,0" VerticalAlignment="Top" Height="17" Width="154">
             <Hyperlink NavigateUri="https://budweg.com/external/catalog-files/023010N.pdf" RequestNavigate="Hyperlink_RequestNavigate">How to Repair a Floating Single Piston Caliper</Hyperlink>
         </TextBlock>
 
-        <Button x:Name="btn_Back" Content="Tilbage" Background="Green" Foreground="White" BorderBrush="Transparent" Padding="20,2" HorizontalAlignment="Center" Margin="0,657,0,0" VerticalAlignment="Top" Width="126" Height="29" Click="btn_Back_Click"/>
+        <Button x:Name="btn_Back" Content="Tilbage" Background="Green" Foreground="White" BorderBrush="Transparent" Padding="20,2" HorizontalAlignment="Center" Margin="0,550,0,0" VerticalAlignment="Top" Width="126" Height="29" Click="btn_Back_Click"/>
 
 
     </Grid>

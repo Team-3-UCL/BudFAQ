@@ -60,6 +60,11 @@ public partial class Forside : Page
 
         }
 
+        public void ListBox_OnPreviewMouseDown(object sender, RoutedEventArgs e)
+        {
+           tb_Search.Text = (string)((ListBoxItem)sender).Content;
+        }
+
         public void lb_Search(object sender, RoutedEventArgs r)
         {
             
