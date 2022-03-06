@@ -13,8 +13,17 @@
 
         <Label Content="Video" Foreground="Green" FontWeight="SemiBold" FontSize="24" HorizontalAlignment="Left" Margin="39,50,0,0" VerticalAlignment="Top" Height="51" Width="87"></Label>
 
-        <ItemsControl Name="Videos">
-            <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,90,0,0" VerticalAlignment="Top" Height="20" Width="294">
+        <ItemsControl Name="icVideos" ItemsSource="{Binding Videos}"  Margin="46,100,46,532">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Height="18" Width="258">
+                        <Hyperlink NavigateUri="{Binding Link}" RequestNavigate="Hyperlink_RequestNavigate">
+                            <TextBlock Text="{Binding Title}"></TextBlock>
+                      </Hyperlink>
+                    </TextBlock>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            <!--<TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,90,0,0" VerticalAlignment="Top" Height="20" Width="294">
             <Hyperlink NavigateUri="https://www.youtube.com/watch?v=DaSXcqwuTJM" RequestNavigate="Hyperlink_RequestNavigate">How to Repair a Floating Single Piston Caliper</Hyperlink>
             </TextBlock>
 
@@ -23,7 +32,7 @@
             </TextBlock>
 
             <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="44,5,0,0" VerticalAlignment="Top" Height="18" Width="380">
-            </TextBlock>
+            </TextBlock>-->
         </ItemsControl>
 
 
@@ -31,11 +40,11 @@
 
         <Label Content="Artikler" Foreground="Green" FontWeight="SemiBold" FontSize="24" HorizontalAlignment="Left" Margin="39,261,0,0" VerticalAlignment="Top" Height="51" Width="108"/>
 
-        <ItemsControl Name="Articles" ItemsSource="{Binding articles}" Margin="46,302,46,332">
+        <ItemsControl Name="icArticles" ItemsSource="{Binding Articles}" Margin="46,302,46,332">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Height="18" Width="258">
-                        <Hyperlink Click="Article_RequestNavigate">
+                        <Hyperlink Click="Article_RequestNavigate" Tag="{Binding Name}">
                             <TextBlock Text="{Binding Name}"></TextBlock>
                       </Hyperlink>
                     </TextBlock>

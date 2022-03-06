@@ -7,11 +7,11 @@ using System.Data.SqlClient;
 
 namespace BudFAQ
 {
-    class ArticelRepository
+    class ArticleRepository
     {
         private List<Article> articles;
         string connectionString = "Server = 10.56.8.36; Database=P1DB03;User Id = P1-03; Password=OPENDB_03;";
-        public ArticelRepository()
+        public ArticleRepository()
         {
             articles = new List<Article>();
 

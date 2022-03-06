@@ -21,22 +21,33 @@ namespace BudFAQ
     /// </summary>
     public partial class Oplysninger : Page
     {
-        public Oplysninger(List<ViewArticle> a)
+        public Oplysninger(List<ArticleVM> articles, List<VideoVM> videos)
         {
             InitializeComponent();
-            articles = new();
-            articles = a;
+            Videos = videos;
+            Articles = articles;
+
             this.DataContext = this;
         }
 
-        public List<ViewArticle> articles { get; set; }
-
-       
+        public List<ArticleVM> Articles { get; set; }
+        public List<VideoVM> Videos { get; set; }
 
         public void Article_RequestNavigate(object sender, RoutedEventArgs e)
         {
+            string chosenArticle = ((Hyperlink)sender).Tag.ToString();
+            Artikel artikel = new();
+            artikel.ArtikelName.Content = chosenArticle;
             
-            this.NavigationService.Navigate(new Uri("Artikel.xaml", UriKind.Relative));
+            foreach(ArticleVM articleVM in Articles)
+            {
+                if(articleVM.Name == chosenArticle)
+                {
+                    artikel.Content.Text = articleVM.Text;
+                    break;
+                }
+            }
+            this.NavigationService.Navigate(artikel);
         }
 
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
@@ -51,7 +62,9 @@ namespace BudFAQ
 
         private void btn_Back_Click(object sender, RoutedEventArgs e)
         {
+            
             this.NavigationService.GoBack();
         }
+
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BudFAQ
 {
-    public class ViewArticle
+    public class ArticleVM
     {
         private string name;
 

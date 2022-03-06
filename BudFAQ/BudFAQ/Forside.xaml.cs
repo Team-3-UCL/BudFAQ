@@ -29,32 +29,24 @@ namespace BudFAQ
 public partial class Forside : Page
     {
 
-        SqlConnection sqlCon = new SqlConnection("Server = 10.56.8.36; Database=P1DB03; User Id = P1-03; Password=OPENDB_03;");
-
-        SqlCommand cmd;
-        SqlDataReader dr;
-
         SearchViewModel mvm;
+        DatabaseHelper databaseHelper;
 
 
         public Forside()
         {
             InitializeComponent();
             mvm = new();
+            databaseHelper = new();
+            lb_SearchWords.ItemsSource = databaseHelper.getAllUsedKeywords();
         }
 
         private void btn_Search_Click(object sender, RoutedEventArgs e)
         {
             mvm.searchquery(new string[] { tb_Search.Text });
-            Oplysninger InformationPage = new Oplysninger(mvm.ArticlesFound);
+            Oplysninger InformationPage = new Oplysninger(mvm.ArticlesFound, mvm.Videosfound);
 
             //InformationPage.Articles.Items.Clear();
-
-
-
-
-
-
             this.NavigationService.Navigate(InformationPage);
 
 
@@ -69,5 +61,6 @@ public partial class Forside : Page
         {
             
         }
+
     }
 }

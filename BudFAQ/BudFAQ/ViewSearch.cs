@@ -9,30 +9,37 @@ namespace BudFAQ
 {
     class SearchViewModel
     {
-        private ArticelRepository articleRepository;
-        public List<ViewArticle> ArticlesFound;
-        //public list<video> videosfound;
+        private ArticleRepository articleRepository;
+        private VideoRepository videoRepository;
+        public List<ArticleVM> ArticlesFound;
+        public List<VideoVM> Videosfound;
 
         public SearchViewModel()
         {
             articleRepository = new();
+            videoRepository = new();
             ArticlesFound = new();
-            //videosfound = new();
+            Videosfound = new();
         }
 
 
 
-        //private void searchforvideos(string[] keywords)
-        //{
-        //    foreach (video video in videorepository.getall())
-        //    {
-        //        foreach (string kword in keywords)
-        //        {
-        //            if (video.keywords.contains(kword))
-        //                videosfound.add(article);
-        //        }
-        //    }
-        //}
+        private void searchforvideos(string[] keywords)
+        {
+            foreach (Video video in videoRepository.GetAll())
+            {
+                foreach (string kword in keywords)
+                {
+                    if (video.Keywords.Contains(kword))
+                    {
+                        VideoVM viewVideo = new() { Title = video.Title, Link = video.Link };
+
+                        Videosfound.Add(viewVideo);
+                    }
+                        
+                }
+            }
+        }
 
         private void searchForArticles(string[] keywords)
         {
@@ -42,7 +49,7 @@ namespace BudFAQ
                 {
                     if (article.Keywords.Contains(kword))
                     {
-                        ViewArticle viewArticle = new() { Name = article.Name, Text = article.Text };
+                        ArticleVM viewArticle = new() { Name = article.Name, Text = article.Text };
 
                         ArticlesFound.Add(viewArticle);
                         break;
@@ -56,9 +63,9 @@ namespace BudFAQ
         public void searchquery(string[] keywords)
         {
             ArticlesFound = new(); // nulstille listen
-            //videosfound = new(); // nulstille listen
+            Videosfound = new(); // nulstille listen
 
-            //searchforvideos(keywords);
+            searchforvideos(keywords);
             searchForArticles(keywords);
         }
     }

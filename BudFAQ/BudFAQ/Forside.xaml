@@ -19,10 +19,13 @@
             Background="LightGray"                 
             Margin="43,121,37,168"
             Foreground="Green"
-                 
+            HorizontalContentAlignment="Stretch"
                  >
-            <ListBoxItem Content="ABARTH5000" PreviewMouseDown="ListBox_OnPreviewMouseDown"></ListBoxItem>
-            <ListBoxItem Content="ABARTH Punto Hatchback" PreviewMouseDown="ListBox_OnPreviewMouseDown"></ListBoxItem>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <ListBoxItem Content="{Binding}" PreviewMouseDown="ListBox_OnPreviewMouseDown" ></ListBoxItem>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
 
         <TextBox x:Name="tb_Search" HorizontalAlignment="Left" Margin="61,56,0,0" TextWrapping="NoWrap" 
