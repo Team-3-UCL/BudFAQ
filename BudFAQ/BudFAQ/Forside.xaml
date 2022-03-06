@@ -10,17 +10,23 @@
       Title="Forside">
 
     <Grid>
-        <Image HorizontalAlignment="Left" Height="51" Margin="203,657,0,0" VerticalAlignment="Top" Width="50"
-            Source="https://fsymbols.com/images/phone-icon.png"/>
-        <Label Content="Kundeservice"
+        <Image HorizontalAlignment="Left" Height="51" Margin="203,607,0,0" VerticalAlignment="Top" Width="50"
+            Source="https://fsymbols.com/images/phone-icon.png" RenderTransformOrigin="0.555,-0.284"/>
+        <Label Content="Kundeservice&#xD;&#xA;+ 01 23 45 67"
             FontSize="20"
-            HorizontalAlignment="Left" Margin="165,705,0,0" VerticalAlignment="Top"/>
-        <ListBox x:Name="lb_Search" 
+            HorizontalAlignment="Left" Margin="165,662,0,0" VerticalAlignment="Top" Height="64"/>
+        <ListBox x:Name="lb_SearchWords" 
             Background="LightGray"                 
             Margin="43,121,37,168"
             Foreground="Green"
-                 
-                 />
+            HorizontalContentAlignment="Stretch"
+                 >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <ListBoxItem Content="{Binding}" PreviewMouseDown="ListBox_OnPreviewMouseDown" ></ListBoxItem>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
         <TextBox x:Name="tb_Search" HorizontalAlignment="Left" Margin="61,56,0,0" TextWrapping="NoWrap" 
             BorderBrush="Black"

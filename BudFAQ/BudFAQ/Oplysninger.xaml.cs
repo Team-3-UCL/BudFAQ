@@ -21,67 +21,50 @@ namespace BudFAQ
     /// </summary>
     public partial class Oplysninger : Page
     {
-        public Oplysninger()
+        public Oplysninger(List<ArticleVM> articles, List<VideoVM> videos)
         {
             InitializeComponent();
+            Videos = videos;
+            Articles = articles;
 
+            this.DataContext = this;
         }
 
+        public List<ArticleVM> Articles { get; set; }
+        public List<VideoVM> Videos { get; set; }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void Article_RequestNavigate(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("Artikel.xaml", UriKind.Relative));
+            string chosenArticle = ((Hyperlink)sender).Tag.ToString();
+            Artikel artikel = new();
+            artikel.ArtikelName.Content = chosenArticle;
+            
+            foreach(ArticleVM articleVM in Articles)
+            {
+                if(articleVM.Name == chosenArticle)
+                {
+                    artikel.Content.Text = articleVM.Text;
+                    break;
+                }
+            }
+            this.NavigationService.Navigate(artikel);
         }
 
-        private void btn_Manual_Click(object sender, RoutedEventArgs e)
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
             Process.Start(new ProcessStartInfo
             {
-                FileName = "https://budweg.com/external/catalog-files/023010N.pdf",
+                FileName = e.Uri.AbsoluteUri,
                 UseShellExecute = true
             });
-        }
-
-        private void btn_Video1_Click(object sender, RoutedEventArgs e)
-        {
-            Process.Start(new ProcessStartInfo
-            {
-                FileName = "https://www.youtube.com/watch?v=DaSXcqwuTJM&t",
-                UseShellExecute = true
-            });
-        }
-
-        private void btn_Video2_Click(object sender, RoutedEventArgs e)
-        {
-            Process.Start(new ProcessStartInfo
-            {
-                FileName = "https://www.youtube.com/watch?v=aN5gmPanFTA&t",
-                UseShellExecute = true
-            });
-        }
-
-        private void btn_Video3_Click(object sender, RoutedEventArgs e)
-        {
-            Process.Start(new ProcessStartInfo
-            {
-                FileName = "https://www.youtube.com/watch?v=wO3JkuslgAQ",
-                UseShellExecute = true
-            });
-        }
-
-        private void btn_Artikel1_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new Uri("Artikel.xaml", UriKind.Relative));
-        }
-
-        private void btn_Artikel2_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new Uri("Artikel.xaml", UriKind.Relative));
+            e.Handled = true;
         }
 
         private void btn_Back_Click(object sender, RoutedEventArgs e)
         {
+            
             this.NavigationService.GoBack();
         }
+
     }
 }

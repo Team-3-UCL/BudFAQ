@@ -8,6 +8,8 @@ namespace BudFAQ
 {
     public class Article
     {
+        public int ArticleID { get; init; }
+
         private string name;
 
         public string Name
@@ -32,10 +34,6 @@ namespace BudFAQ
             set { link = value; }
         }
 
-
-
-
-
-
+       public List<string> Keywords { get; set; } = new();
     }
 }

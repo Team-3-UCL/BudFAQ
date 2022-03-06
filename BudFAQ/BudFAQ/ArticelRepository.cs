@@ -7,43 +7,13 @@ using System.Data.SqlClient;
 
 namespace BudFAQ
 {
-    class ArticelRepository
+    class ArticleRepository
     {
-
-        public static void ReadOrderData(string connectionStringm)
-        {
-            
-
-            string queryString =
-                "SELECT City FROM dbo.CINEMA WHERE CinemaID = 3;";
-
-            using (SqlConnection connection =
-                       new SqlConnection(connectionStringm))
-            {
-                SqlCommand command =
-                    new SqlCommand(queryString, connection);
-                connection.Open();
-
-                SqlDataReader reader = command.ExecuteReader();
-
-                // Call Read before accessing data.
-                while (reader.Read())
-                {
-                    Console.WriteLine(String.Format("{0}", reader[0]));
-                    
-                }
-
-                // Call Close when done reading.
-                reader.Close();
-            }
-        }
-
-        private List<Article> _articles;
+        private List<Article> articles;
         string connectionString = "Server = 10.56.8.36; Database=P1DB03;User Id = P1-03; Password=OPENDB_03;";
-        public ArticelRepository()
+        public ArticleRepository()
         {
-            _articles = new List<Article>();
-
+            articles = new List<Article>();
 
             using (SqlConnection connection = new(connectionString))
             {
@@ -54,12 +24,36 @@ namespace BudFAQ
                 {
                     while (reader.Read())
                     {              
-                        Article article = new();
-                        article.Name = reader["ArticleName"].ToString();
-                        article.Text = reader["ArticleText"].ToString();
-                        article.Link = reader["ArticleLink"].ToString();
+                        Article article = new() {
+                            ArticleID = (int)reader["ArtikelID"],
+                            Name = reader["Title"].ToString(),
+                            Text = reader["Content"].ToString(),
+                            Link = reader["Link"].ToString()
+                        };
 
-                        _articles.Add(article);
+                        articles.Add(article);
+
+                    }
+                }
+
+                sCmd = "Select * FROM dbo.Keywords_Artikel";
+                cmd = new(sCmd, connection);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int Id = (int)reader["ArtikelID"];
+                        string word = reader["Word"].ToString();
+
+                        foreach(Article article in articles)
+                        {
+                            if(article.ArticleID == Id)
+                            {
+                                article.Keywords.Add(word);
+                                break;
+                            }
+
+                        }
 
                     }
                 }
@@ -67,10 +61,13 @@ namespace BudFAQ
 
             }
         }
+    
+        public List<Article> GetAll()
+        {
+            return articles;
+        }
 
-
-
-
+        
     }
 }
 
