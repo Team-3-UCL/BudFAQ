@@ -13,10 +13,10 @@
 
         <Label Content="Video" Foreground="Green" FontWeight="SemiBold" FontSize="24" HorizontalAlignment="Left" Margin="39,50,0,0" VerticalAlignment="Top" Height="51" Width="87"></Label>
 
-        <ItemsControl Name="icVideos" ItemsSource="{Binding Videos}"  Margin="46,100,46,532">
+        <ItemsControl Name="icVideos" ItemsSource="{Binding Videos}"  Margin="46,100,10,532">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Height="18" Width="258">
+                    <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Height="18" Width="400">
                         <Hyperlink NavigateUri="{Binding Link}" RequestNavigate="Hyperlink_RequestNavigate">
                             <TextBlock Text="{Binding Title}"></TextBlock>
                       </Hyperlink>
@@ -40,10 +40,10 @@
 
         <Label Content="Artikler" Foreground="Green" FontWeight="SemiBold" FontSize="24" HorizontalAlignment="Left" Margin="39,261,0,0" VerticalAlignment="Top" Height="51" Width="108"/>
 
-        <ItemsControl Name="icArticles" ItemsSource="{Binding Articles}" Margin="46,302,46,332">
+        <ItemsControl Name="icArticles" ItemsSource="{Binding Articles}" Margin="46,302,10,332">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Height="18" Width="258">
+                    <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Height="18" Width="400">
                         <Hyperlink Click="Article_RequestNavigate" Tag="{Binding Name}">
                             <TextBlock Text="{Binding Name}"></TextBlock>
                       </Hyperlink>
@@ -74,7 +74,7 @@
 
         <Label Content="Manual" Foreground="Green" FontWeight="SemiBold" FontSize="24" HorizontalAlignment="Left" Margin="46,475,0,0" VerticalAlignment="Top" Height="51" Width="108"/>
         <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="46,526,0,0" VerticalAlignment="Top" Height="17" Width="154">
-            <Hyperlink NavigateUri="https://budweg.com/external/catalog-files/023010N.pdf" RequestNavigate="Hyperlink_RequestNavigate">How to Repair a Floating Single Piston Caliper</Hyperlink>
+            <Hyperlink NavigateUri="https://budweg.com/external/catalog-files/023010N.pdf" RequestNavigate="Hyperlink_RequestNavigate">Manual Download PDF</Hyperlink>
         </TextBlock>
 
         <Button x:Name="btn_Back" Content="Tilbage" Background="Green" Foreground="White" BorderBrush="Transparent" Padding="20,2" HorizontalAlignment="Center" Margin="0,550,0,0" VerticalAlignment="Top" Width="126" Height="29" Click="btn_Back_Click"/>
