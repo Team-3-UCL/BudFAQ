@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model
+namespace ViewModel.BudFaqVM
 {
-    class Manual
+    public class ManualVM
     {
-        public int ManualID { get; init; }
         public string Title { get; set; }
         public string Link { get; set; }
     }

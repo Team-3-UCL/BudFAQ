@@ -41,12 +41,15 @@ public partial class Forside : Page
             mvm = new();
             databaseHelper = new();
             lb_SearchWords.ItemsSource = databaseHelper.GetAllUsedKeywords();
+            DataContext = mvm;
         }
 
         private void btn_Search_Click(object sender, RoutedEventArgs e)
         {
             mvm.SearchQuery(new string[] { tb_Search.Text });
-            Oplysninger InformationPage = new(mvm.ArticlesFound, mvm.Videosfound);
+            Oplysninger InformationPage = new();
+            InformationPage.DataContext = mvm;
+
 
             //InformationPage.Articles.Items.Clear();
             this.NavigationService.Navigate(InformationPage);

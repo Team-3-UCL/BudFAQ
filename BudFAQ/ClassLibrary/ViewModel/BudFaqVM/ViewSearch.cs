@@ -12,15 +12,29 @@ namespace ViewModel.BudFaqVM
     {
         private ArticleRepository articleRepository;
         private VideoRepository videoRepository;
-        public List<ArticleVM> ArticlesFound;
-        public List<VideoVM> Videosfound;
+        public List<ArticleVM> ArticlesFound { get; set; }
+        public List<VideoVM> VideosFound { get; set; }
+        public ManualVM Manual { get; set; }
 
         public SearchViewModel()
         {
             articleRepository = new();
             videoRepository = new();
             ArticlesFound = new();
-            Videosfound = new();
+            VideosFound = new();
+
+            using(SqlConnection connection = new("Server = 10.56.8.36; Database=P1DB03;User Id = P1-03; Password=OPENDB_03;"))
+            {
+                connection.Open();
+                SqlCommand cmd = new("SELECT * FROM dbo.Manual", connection);
+                using(SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    Manual = new();
+                    reader.Read();
+                    Manual.Link = reader["Link"].ToString();
+                    Manual.Title = reader["Title"].ToString();
+                }
+            }
         }
 
 
@@ -35,7 +49,7 @@ namespace ViewModel.BudFaqVM
                     {
                         VideoVM viewVideo = new() { Title = video.Title, Link = video.Link };
 
-                        Videosfound.Add(viewVideo);
+                        VideosFound.Add(viewVideo);
                     }
                         
                 }
@@ -64,7 +78,7 @@ namespace ViewModel.BudFaqVM
         public void SearchQuery(string[] keywords)
         {
             ArticlesFound = new(); // nulstille listen
-            Videosfound = new(); // nulstille listen
+            VideosFound = new(); // nulstille listen
 
             SearchForVideos(keywords);
             SearchForArticles(keywords);

@@ -10,28 +10,28 @@ namespace Model
     {
         public int ArticleID { get; init; }
 
-        private string name;
+        private string _name;
 
         public string Name
         {
-            get { return name; }
-            set { name = value; }
+            get { return _name; }
+            set { _name = value; }
         }
 
-        private string text;
+        private string _text;
 
         public string Text
         {
-            get { return text; }
-            set { text = value; }
+            get { return _text; }
+            set { _text = value; }
         }
 
-        private string link;
+        private string _link;
 
         public string Link
         {
-            get { return link; }
-            set { link = value; }
+            get { return _link; }
+            set { _link = value; }
         }
 
        public List<string> Keywords { get; set; } = new();
