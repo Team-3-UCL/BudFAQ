@@ -4,10 +4,11 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Model;
 
-namespace BudFAQ
+namespace ViewModel.BudFaqVM
 {
-    class SearchViewModel
+    public class SearchViewModel
     {
         private ArticleRepository articleRepository;
         private VideoRepository videoRepository;
@@ -24,7 +25,7 @@ namespace BudFAQ
 
 
 
-        private void searchforvideos(string[] keywords)
+        private void SearchForVideos(string[] keywords)
         {
             foreach (Video video in videoRepository.GetAll())
             {
@@ -41,7 +42,7 @@ namespace BudFAQ
             }
         }
 
-        private void searchForArticles(string[] keywords)
+        private void SearchForArticles(string[] keywords)
         {
             foreach (Article article in articleRepository.GetAll())
             {
@@ -60,13 +61,13 @@ namespace BudFAQ
             
         }
 
-        public void searchquery(string[] keywords)
+        public void SearchQuery(string[] keywords)
         {
             ArticlesFound = new(); // nulstille listen
             Videosfound = new(); // nulstille listen
 
-            searchforvideos(keywords);
-            searchForArticles(keywords);
+            SearchForVideos(keywords);
+            SearchForArticles(keywords);
         }
     }
 }

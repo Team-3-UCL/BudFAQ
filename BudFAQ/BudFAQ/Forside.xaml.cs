@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
+using ViewModel;
+using ViewModel.BudFaqVM;
 
 
 
@@ -38,13 +40,13 @@ public partial class Forside : Page
             InitializeComponent();
             mvm = new();
             databaseHelper = new();
-            lb_SearchWords.ItemsSource = databaseHelper.getAllUsedKeywords();
+            lb_SearchWords.ItemsSource = databaseHelper.GetAllUsedKeywords();
         }
 
         private void btn_Search_Click(object sender, RoutedEventArgs e)
         {
-            mvm.searchquery(new string[] { tb_Search.Text });
-            Oplysninger InformationPage = new Oplysninger(mvm.ArticlesFound, mvm.Videosfound);
+            mvm.SearchQuery(new string[] { tb_Search.Text });
+            Oplysninger InformationPage = new(mvm.ArticlesFound, mvm.Videosfound);
 
             //InformationPage.Articles.Items.Clear();
             this.NavigationService.Navigate(InformationPage);

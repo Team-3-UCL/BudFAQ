@@ -4,21 +4,22 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Model;
 
-namespace BudFAQ
+namespace ViewModel
 {
     class VideoRepository
     {
-        private List<Video> Videos;
-        string connectionString = "Server = 10.56.8.36; Database=P1DB03;User Id = P1-03; Password=OPENDB_03;";
+        private List<Video> videos;
+        readonly string connectionString = "Server = 10.56.8.36; Database=P1DB03;User Id = P1-03; Password=OPENDB_03;";
         public VideoRepository()
         {
-            Videos = new List<Video>();
+            videos = new List<Video>();
 
             using (SqlConnection connection = new(connectionString))
             {
                 string sCmd = "SELECT * FROM dbo.Video";
-                SqlCommand cmd = new SqlCommand(sCmd, connection);
+                SqlCommand cmd = new(sCmd, connection);
                 connection.Open();
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
@@ -32,7 +33,7 @@ namespace BudFAQ
                             Link = reader["Link"].ToString()
                         };
 
-                        Videos.Add(Video);
+                        videos.Add(Video);
 
                     }
                 }
@@ -46,7 +47,7 @@ namespace BudFAQ
                         int Id = (int)reader["VideoID"];
                         string word = reader["Word"].ToString();
 
-                        foreach (Video Video in Videos)
+                        foreach (Video Video in videos)
                         {
                             if (Video.VideoID == Id)
                             {
@@ -65,7 +66,7 @@ namespace BudFAQ
 
         public List<Video> GetAll()
         {
-            return Videos;
+            return videos;
         }
 
 

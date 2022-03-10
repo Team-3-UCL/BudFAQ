@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 
-namespace BudFAQ
+namespace ViewModel
 {
     public class DatabaseHelper
     {
         private readonly string connectionString = "Server = 10.56.8.36; Database=P1DB03;User Id = P1-03; Password=OPENDB_03;";
 
-        public List<string> getAllUsedKeywords()
+        public List<string> GetAllUsedKeywords()
         {
             List<string> UsedKeywords = new();
 
