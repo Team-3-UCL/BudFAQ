@@ -16,14 +16,19 @@ using System.Windows.Shapes;
 namespace SupportApp
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Forside.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Forside : Page
     {
-        public MainWindow()
+        public Forside()
         {
             InitializeComponent();
         }
 
+        private void btnArticles_Click(object sender, RoutedEventArgs e)
+        {
+            ArticleManager articleManager = new();
+            this.NavigationService.Navigate(articleManager); 
+        }
     }
 }
