@@ -12,19 +12,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ViewModel;
 using ViewModel.SupportAppVM;
 
 namespace SupportApp
 {
     /// <summary>
-    /// Interaction logic for Page1.xaml
+    /// Interaction logic for VideoManager.xaml
     /// </summary>
-    public partial class ArticleManager : Page
+    public partial class VideoManager : Page
     {
-        ArticleManagerVM mvm;
 
-        public ArticleManager()
+        VideoManagerVM mvm;
+        public VideoManager()
         {
             InitializeComponent();
             mvm = new();
@@ -36,21 +35,30 @@ namespace SupportApp
             this.NavigationService.GoBack();
         }
 
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+        }
         private void btnNewClick(object sender, RoutedEventArgs e)
         {
-            mvm.AddDefaultArticle();
-            Articles.ItemsSource = mvm.Articles;
+            mvm.AddDefaultVideo();
+            Articles.ItemsSource = mvm.Videos;
         }
 
         private void btnRemoveClick(object sender, RoutedEventArgs e)
         {
-            mvm.DeleteSelectedArticle();
-            Articles.ItemsSource = mvm.Articles;
+            mvm.DeleteSelectedVideo();
+            Articles.ItemsSource = mvm.Videos;
+        }
+
+        private void ValidateNumberInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !e.Text.All(char.IsDigit);
         }
 
         private void TextBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            mvm.UpdateSelectedArticle();
+            mvm.UpdateSelectedVideo();
         }
     }
 }

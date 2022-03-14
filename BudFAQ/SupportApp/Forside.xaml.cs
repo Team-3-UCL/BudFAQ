@@ -30,5 +30,11 @@ namespace SupportApp
             ArticleManager articleManager = new();
             this.NavigationService.Navigate(articleManager); 
         }
+
+        private void btnVideos_Click(object sender, RoutedEventArgs e)
+        {
+            VideoManager videoManager = new();
+            this.NavigationService.Navigate(videoManager);
+        }
     }
 }

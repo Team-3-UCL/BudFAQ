@@ -1,26 +1,26 @@
-﻿<Page x:Class="SupportApp.ArticleManager"
+﻿<Page x:Class="SupportApp.VideoManager"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SupportApp"
       mc:Ignorable="d" 
-      d:DesignHeight="650" d:DesignWidth="800"
-      Title="Page1">
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="VideoManager">
 
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="10" />
-            <ColumnDefinition Width="8*" />
+            <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
 
 
-        <ListBox x:Name="Articles" ItemsSource="{Binding Articles}" SelectedItem="{Binding ChosenArticle}">
+        <ListBox x:Name="Articles" ItemsSource="{Binding Videos}" SelectedItem="{Binding ChosenVideo}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <Label Content="{Binding Name}"/>
+                        <Label Content="{Binding Title}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -34,14 +34,15 @@
 
         <Grid Grid.Column="2">
             <Label HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="30" Content="Titel" Margin="0,10,0,0"/>
-            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" Height="20" Margin="50,10,0,0" Text="{Binding ChosenArticle.Name}" LostFocus="TextBox_LostFocus"/>
-            <Label Content="Tekst" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,113,0,0"/>
-            <Button Content="Bremsekalibrer"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="0,88,0,0"></Button>
+            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" Height="20" Margin="50,10,0,0" Text="{Binding ChosenVideo.Title}" LostFocus="TextBox_LostFocus" ></TextBox>
+            <Label Content="Length" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,71,0,0"/>
+            <Button Content="Bremsekalibrer"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="10,157,0,0"></Button>
             <Label HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="30" Content="Link" Margin="0,41,0,0"/>
-            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" Height="20" Margin="50,41,0,0" LostFocus="TextBox_LostFocus" Text="{Binding ChosenArticle.Link}"></TextBox>
+            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" Height="20" Margin="50,41,0,0" Text="{Binding ChosenVideo.Link}" LostFocus="TextBox_LostFocus"></TextBox>
+            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" Height="20" Margin="50,74,0,0" PreviewTextInput="ValidateNumberInput" Text="{Binding ChosenVideo.Length}" LostFocus="TextBox_LostFocus"></TextBox>
 
         </Grid>
-        <TextBox Margin="10,153,44,30" Grid.Column="2" LostFocus="TextBox_LostFocus" Text="{Binding ChosenArticle.Text}"></TextBox>
+
 
     </Grid>
 </Page>
