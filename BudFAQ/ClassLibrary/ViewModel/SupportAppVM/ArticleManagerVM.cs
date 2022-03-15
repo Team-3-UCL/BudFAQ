@@ -24,8 +24,8 @@ namespace ViewModel.SupportAppVM
 
         public void DeleteSelectedArticle()
         {
-            Articles.Remove(ChosenArticle);
             articleRepository.Remove(ChosenArticle.ArticleID);
+            Articles.Remove(ChosenArticle);
 
         }
 

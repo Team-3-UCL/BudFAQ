@@ -24,8 +24,8 @@ namespace ViewModel.SupportAppVM
 
         public void DeleteSelectedVideo()
         {
-            Videos.Remove(ChosenVideo);
             videoRepository.Remove(ChosenVideo.VideoID);
+            Videos.Remove(ChosenVideo);
         }
 
         public void UpdateSelectedVideo()
