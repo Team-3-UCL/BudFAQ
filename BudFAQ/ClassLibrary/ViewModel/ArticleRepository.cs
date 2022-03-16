@@ -131,14 +131,14 @@ namespace ViewModel
                 cmd.Parameters["@text"].Value = text;
                 connection.Open();
                 cmd.ExecuteNonQuery();
-                cmd.CommandText = "SELECT TOP 1 * FROM dbo.Artikel ORDER BY ArtikelID DESC";
+                cmd.CommandText = "SELECT TOP 1 * FROM dbo.Article ORDER BY ArticleID DESC";
 
                 // inds;t brake calipers
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     reader.Read();
-                    int Id = (int)reader["ArtikelID"];
+                    int Id = (int)reader["ArticleID"];
                     Article article = new()
                     {
                         ArticleID = Id,

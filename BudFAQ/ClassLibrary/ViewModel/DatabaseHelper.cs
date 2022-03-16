@@ -18,9 +18,9 @@ namespace ViewModel
             using(SqlConnection connection = new(connectionString))
             {
                 string sCmd = "SELECT Name " +
-                    "FROM dbo.BrakeCaliper_Artikel " +
+                    "FROM dbo.BrakeCaliper_Article " +
                     "JOIN dbo.BrakeCaliper " +
-                    "ON BrakeCaliper_Artikel.BrakeCaliperID = BrakeCaliper.BrakeCaliperID" +
+                    "ON BrakeCaliper_Article.BrakeCaliperID = BrakeCaliper.BrakeCaliperID " +
                     "UNION " + // union giver bare distinct v;rdier
                     "SELECT Name " +
                     "FROM dbo.BrakeCaliper_Video " +

@@ -17,9 +17,8 @@ namespace ViewModel.SupportAppVM
 
         public void AddDefaultVideo()
         {
-            videoRepository.Add("specify", 0, "specify");
+            videoRepository.Add("specify title", 0, "specify link");
             Videos.Add(videoRepository.GetAll().Last());
-            
         }
 
         public void DeleteSelectedVideo()

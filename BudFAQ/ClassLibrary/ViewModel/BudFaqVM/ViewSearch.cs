@@ -64,7 +64,7 @@ namespace ViewModel.BudFaqVM
                 {
                     if (article.BrakeCalipers.Any(brakeCaliper => brakeCaliper.Name.ToUpper().Contains(kword.ToUpper())))
                     {
-                        ArticleVM viewArticle = new() { Title = article.Name, Text = article.Text };
+                        ArticleVM viewArticle = new() { Title = article.Title, Text = article.Text };
 
                         ArticlesFound.Add(viewArticle);
                         break;

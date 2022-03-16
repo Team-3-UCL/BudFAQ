@@ -40,7 +40,7 @@ public partial class Forside : Page
             InitializeComponent();
             mvm = new();
             databaseHelper = new();
-            lb_SearchWords.ItemsSource = databaseHelper.GetAllUsedKeywords();
+            lb_SearchWords.ItemsSource = databaseHelper.GetAllUsedBrakeCalipers();
             DataContext = mvm;
         }
 

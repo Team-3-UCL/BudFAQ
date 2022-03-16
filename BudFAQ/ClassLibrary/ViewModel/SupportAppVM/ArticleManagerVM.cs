@@ -17,7 +17,7 @@ namespace ViewModel.SupportAppVM
 
         public void AddDefaultArticle()
         {
-            articleRepository.Add("specify", "specify", "specify");
+            articleRepository.Add("specify name", "specify text");
             Articles.Add(articleRepository.GetAll().Last());
             
         }
