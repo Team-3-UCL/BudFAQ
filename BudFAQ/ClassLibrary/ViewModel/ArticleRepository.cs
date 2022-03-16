@@ -91,7 +91,7 @@ namespace ViewModel
             {
                 string sCmd = "UPDATE dbo.Article " +
                     "SET Title = @title, " +
-                    "Text = @text, " +
+                    "Text = @text " +
                     "WHERE ArticleID = @id";
                 SqlCommand cmd = new(sCmd, connection);
                 cmd.Parameters.Add("@title", System.Data.SqlDbType.NVarChar);
