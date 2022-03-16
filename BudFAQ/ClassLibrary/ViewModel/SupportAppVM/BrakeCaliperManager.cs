@@ -9,39 +9,10 @@ using System.Collections.ObjectModel;
 
 namespace ViewModel.SupportAppVM
 {
-    public class ArticleManagerVM
+    public class BrakeCaliperManagerVM
     {
         ArticleRepository articleRepository;
-
-        private Article _chosenArticle;
-
-        public Article ChosenArticle
-        {
-            get { return _chosenArticle; }
-            set { 
-                _chosenArticle = value;
-            }
-        }
-
-        public List<BrakeCaliper> NonChosenBrakeCalipers
-        {
-            get
-            {
-                List<BrakeCaliper> result = new(); // nulstille
-                BrakeCaliperRepository brakeCaliperRepository = new();
-                foreach (BrakeCaliper brakeCaliper in brakeCaliperRepository.GetAll())
-                {
-                    if (!ChosenArticle.BrakeCalipers.Any(
-                        cal => cal.BrakeCaliperID == brakeCaliper.BrakeCaliperID
-                        && cal.BudwegNumber == brakeCaliper.BudwegNumber
-                        && cal.Name == brakeCaliper.Name))
-                    {
-                        result.Add(brakeCaliper);
-                    }
-                }
-                return result;
-            }
-        }
+        public Article ChosenArticle { get; set; }
         public ObservableCollection<Article> Articles { get; set; }
 
         public void AddDefaultArticle()
@@ -68,7 +39,7 @@ namespace ViewModel.SupportAppVM
         }
 
 
-        public ArticleManagerVM()
+        public BrakeCaliperManagerVM()
         {
             articleRepository = new();
             Articles = new();

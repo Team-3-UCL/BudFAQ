@@ -52,5 +52,17 @@ namespace SupportApp
         {
             mvm.UpdateSelectedArticle();
         }
+        private void btnBrakeCaliper_Click(object sender, RoutedEventArgs e)
+        {
+            BrakeCaliperChooser chooser = new();
+            chooser.UsedBrakeCalipers.ItemsSource = null;
+            chooser.NonUsedBrakeCalipers.ItemsSource = null;
+            chooser.UsedBrakeCalipers.ItemsSource = mvm.ChosenArticle.BrakeCalipers;
+            chooser.NonUsedBrakeCalipers.ItemsSource = mvm.NonChosenBrakeCalipers;
+            chooser.NonUsedBrakeCalipers.Items.Refresh();
+            chooser.ShowDialog();
+            
+            
+        }
     }
 }
