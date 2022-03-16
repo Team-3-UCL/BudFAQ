@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BudFAQ"
         mc:Ignorable="d"
-        Title="MainWindow" Height="900 " Width="450">
+        Title="MainWindow" Height="900 " Width="450" ResizeMode="NoResize">
     <Grid>
         <Rectangle HorizontalAlignment="Center" Height="40" Stroke="Black" VerticalAlignment="Top" Width="264" RenderTransformOrigin="-1.92,-2"
           Fill="Black"/>

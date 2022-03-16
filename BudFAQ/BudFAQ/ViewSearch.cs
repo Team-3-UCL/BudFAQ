@@ -30,7 +30,7 @@ namespace BudFAQ
             {
                 foreach (string kword in keywords)
                 {
-                    if (video.Keywords.Contains(kword))
+                    if (video.Keywords.Any(stringName => stringName.Contains(kword)))
                     {
                         VideoVM viewVideo = new() { Title = video.Title, Link = video.Link };
 
@@ -47,7 +47,7 @@ namespace BudFAQ
             {
                 foreach (string kword in keywords)
                 {
-                    if (article.Keywords.Contains(kword))
+                    if (article.Keywords.Any(stringName => stringName.Contains(kword)))
                     {
                         ArticleVM viewArticle = new() { Name = article.Name, Text = article.Text };
 

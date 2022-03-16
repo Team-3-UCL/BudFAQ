@@ -77,7 +77,7 @@
             <Hyperlink NavigateUri="https://budweg.com/external/catalog-files/023010N.pdf" RequestNavigate="Hyperlink_RequestNavigate">Manual Download PDF</Hyperlink>
         </TextBlock>
 
-        <Button x:Name="btn_Back" Content="Tilbage" Background="Green" Foreground="White" BorderBrush="Transparent" Padding="20,2" HorizontalAlignment="Center" Margin="0,550,0,0" VerticalAlignment="Top" Width="126" Height="29" Click="btn_Back_Click"/>
+        <Button x:Name="btn_Back" Content="Tilbage" Background="Green" Foreground="White" BorderBrush="Transparent" Padding="20,2" HorizontalAlignment="Center" Margin="0,642,0,0" VerticalAlignment="Top" Width="126" Height="29" Click="btn_Back_Click"/>
 
 
     </Grid>
