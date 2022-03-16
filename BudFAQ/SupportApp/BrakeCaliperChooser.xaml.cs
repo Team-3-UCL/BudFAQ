@@ -34,6 +34,7 @@ namespace SupportApp
             NonUsedBrakeCalipers.Items.Refresh();
             UsedBrakeCalipers.ItemsSource = used;
             UsedBrakeCalipers.Items.Refresh();
+            CheckedCalipers = used;
         }
 
         private void okButton_Click(object sender, RoutedEventArgs e)
