@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ViewModel;
 using ViewModel.SupportAppVM;
+using Model;
 
 namespace SupportApp
 {
@@ -54,14 +55,14 @@ namespace SupportApp
         }
         private void btnBrakeCaliper_Click(object sender, RoutedEventArgs e)
         {
-            BrakeCaliperChooser chooser = new();
-            chooser.UsedBrakeCalipers.ItemsSource = null;
-            chooser.NonUsedBrakeCalipers.ItemsSource = null;
-            chooser.UsedBrakeCalipers.ItemsSource = mvm.ChosenArticle.BrakeCalipers;
-            chooser.NonUsedBrakeCalipers.ItemsSource = mvm.NonChosenBrakeCalipers;
-            chooser.NonUsedBrakeCalipers.Items.Refresh();
+            BrakeCaliperChooser chooser = new(mvm.ChosenArticle.BrakeCalipers, mvm.NonChosenBrakeCalipers);
             chooser.ShowDialog();
             
+            if (chooser.DialogResult == true)
+            {
+                mvm.ChosenArticle.BrakeCalipers = chooser.CheckedCalipers;
+                mvm.UpdateSelectedArticle();
+            }
             
         }
     }

@@ -107,12 +107,12 @@ namespace ViewModel
                     "WHERE ArticleID = @id";
                 cmd.ExecuteNonQuery();
 
-                cmd.Parameters.Add("@id", System.Data.SqlDbType.Int);
+                cmd.Parameters.Add("@caliperId", System.Data.SqlDbType.Int);
                 foreach (BrakeCaliper brakeCaliper in updatedArticle.BrakeCalipers)
                 {
                     cmd.Parameters["@caliperId"].Value = brakeCaliper.BrakeCaliperID;
                     cmd.CommandText = "INSERT INTO dbo.BrakeCaliper_Article(ArticleID, BrakeCaliperID) " +
-                    "(@id, @caliperId)";
+                    "VALUES (@id, @caliperId)";
                     cmd.ExecuteNonQuery();
                 }
             }

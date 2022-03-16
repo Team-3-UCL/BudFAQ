@@ -34,7 +34,7 @@ namespace ViewModel
                 {
                     while (reader.Read())
                     {
-                        UsedCalipers.Add(reader["Word"].ToString());
+                        UsedCalipers.Add(reader["Name"].ToString());
                     }
                 }
             }
