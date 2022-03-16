@@ -46,10 +46,7 @@ public partial class Forside : Page
             mvm.searchquery(new string[] { tb_Search.Text });
             Oplysninger InformationPage = new Oplysninger(mvm.ArticlesFound, mvm.Videosfound);
 
-            //InformationPage.Articles.Items.Clear();
             this.NavigationService.Navigate(InformationPage);
-
-
         }
 
         public void ListBox_OnPreviewMouseDown(object sender, RoutedEventArgs e)
@@ -57,10 +54,10 @@ public partial class Forside : Page
            tb_Search.Text = (string)((ListBoxItem)sender).Content;
         }
 
-        public void lb_Search(object sender, RoutedEventArgs r)
+        private void tb_Search_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            
+            if (tb_Search.Text == "Indsæt keywords")
+                tb_Search.Clear();
         }
-
     }
 }
