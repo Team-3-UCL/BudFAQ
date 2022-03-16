@@ -45,7 +45,7 @@ namespace ViewModel.BudFaqVM
             {
                 foreach (string kword in keywords)
                 {
-                    if (video.Keywords.Contains(kword))
+                    if (video.BrakeCalipers.Any(brakeCaliper => brakeCaliper.Name.ToUpper().Contains(kword.ToUpper())))
                     {
                         VideoVM viewVideo = new() { Title = video.Title, Link = video.Link };
 
@@ -62,7 +62,7 @@ namespace ViewModel.BudFaqVM
             {
                 foreach (string kword in keywords)
                 {
-                    if (article.Keywords.Contains(kword))
+                    if (article.BrakeCalipers.Any(brakeCaliper => brakeCaliper.Name.ToUpper().Contains(kword.ToUpper())))
                     {
                         ArticleVM viewArticle = new() { Name = article.Name, Text = article.Text };
 

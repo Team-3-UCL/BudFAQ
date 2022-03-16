@@ -12,6 +12,6 @@ namespace Model
         public string Title { get; set; }
         public int Length { get; set; }
         public string Link { get; set; }
-        public List<string> Keywords { get; set; } = new();
+        public List<BrakeCaliper> BrakeCalipers { get; set; } = new();
     }
 }

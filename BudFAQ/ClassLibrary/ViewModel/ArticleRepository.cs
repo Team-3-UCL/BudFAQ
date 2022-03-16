@@ -18,7 +18,7 @@ namespace ViewModel
 
             using (SqlConnection connection = new(connectionString))
             {
-                string sCmd = "SELECT * FROM dbo.Artikel";
+                string sCmd = "SELECT * FROM dbo.Article";
                 SqlCommand cmd = new(sCmd, connection);
                 connection.Open();
                 using (SqlDataReader reader = cmd.ExecuteReader())
@@ -27,10 +27,9 @@ namespace ViewModel
                     {
                         Article article = new()
                         {
-                            ArticleID = (int)reader["ArtikelID"],
-                            Name = reader["Title"].ToString(),
-                            Text = reader["Content"].ToString(),
-                            Link = reader["Link"].ToString()
+                            ArticleID = (int)reader["ArticleID"],
+                            Title = reader["Title"].ToString(),
+                            Text = reader["Text"].ToString(),
                         };
 
                         articles.Add(article);
@@ -38,20 +37,27 @@ namespace ViewModel
                     }
                 }
 
-                sCmd = "Select * FROM dbo.Keywords_Artikel";
+                sCmd = "Select ArticleID, BrakeCaliper_Article.BrakeCaliperID, Name, BudwegNumber FROM dbo.BrakeCaliper_Article " +
+                       "JOIN BrakeCaliper " +
+                       "ON BrakeCaliper.BrakeCaliperID = BrakeCaliper_Article.BrakeCaliperID";
                 cmd = new(sCmd, connection);
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        int Id = (int)reader["ArtikelID"];
-                        string word = reader["Word"].ToString();
+                        int Id = (int)reader["ArticleID"];
 
                         foreach (Article article in articles)
                         {
                             if (article.ArticleID == Id)
                             {
-                                article.Keywords.Add(word);
+                                var brakeCaliper = new BrakeCaliper()
+                                {
+                                    BrakeCaliperID = (int)reader["BrakeCaliperID"],
+                                    Name = reader["Name"].ToString(),
+                                    BudwegNumber = (int)reader["BudwegNumber"]
+                                };
+                                article.BrakeCalipers.Add(brakeCaliper);
                                 break;
                             }
 
@@ -59,8 +65,6 @@ namespace ViewModel
 
                     }
                 }
-
-
             }
         }
 
@@ -85,18 +89,15 @@ namespace ViewModel
 
             using (SqlConnection connection = new(connectionString))
             {
-                string sCmd = "UPDATE dbo.Artikel " +
+                string sCmd = "UPDATE dbo.Article " +
                     "SET Title = @title, " +
-                    "Content = @text, " +
-                    "Link = @link " +
-                    "WHERE ArtikelID = @id";
+                    "Text = @text, " +
+                    "WHERE ArticleID = @id";
                 SqlCommand cmd = new(sCmd, connection);
                 cmd.Parameters.Add("@title", System.Data.SqlDbType.NVarChar);
-                cmd.Parameters["@title"].Value = updatedArticle.Name;
+                cmd.Parameters["@title"].Value = updatedArticle.Title;
                 cmd.Parameters.Add("@text", System.Data.SqlDbType.NVarChar);
                 cmd.Parameters["@text"].Value = updatedArticle.Text;
-                cmd.Parameters.Add("@link", System.Data.SqlDbType.NVarChar);
-                cmd.Parameters["@link"].Value = updatedArticle.Link;
                 cmd.Parameters.Add("@id", System.Data.SqlDbType.Int);
                 cmd.Parameters["@id"].Value = updatedArticle.ArticleID;
                 connection.Open();
@@ -104,22 +105,22 @@ namespace ViewModel
             }
         }
 
-        public void Add(string name, string text, string link)
+        public void Add(string name, string text, List<BrakeCaliper> brakeCalipers)
         {
             using (SqlConnection connection = new(connectionString))
             {
-                string sCmd = "INSERT INTO dbo.Artikel(Title, Content, Link) " +
-                    "VALUES(@title, @text, @link)";
+                string sCmd = "INSERT INTO dbo.Article(Title, Text) " +
+                    "VALUES(@title, @text)";
                 SqlCommand cmd = new(sCmd, connection);
                 cmd.Parameters.Add("@title", System.Data.SqlDbType.NVarChar);
                 cmd.Parameters["@title"].Value = name;
                 cmd.Parameters.Add("@text", System.Data.SqlDbType.NVarChar);
                 cmd.Parameters["@text"].Value = text;
-                cmd.Parameters.Add("@link", System.Data.SqlDbType.NVarChar);
-                cmd.Parameters["@link"].Value = link;
                 connection.Open();
                 cmd.ExecuteNonQuery();
                 cmd.CommandText = "SELECT TOP 1 * FROM dbo.Artikel ORDER BY ArtikelID DESC";
+
+                // inds;t brake calipers
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
@@ -128,12 +129,11 @@ namespace ViewModel
                     Article article = new()
                     {
                         ArticleID = Id,
-                        Name = name,
+                        Title = name,
                         Text = text,
-                        Link = link
+                        BrakeCalipers = brakeCalipers
                     };
                     articles.Add(article);
-
                 }
             }
         }
@@ -151,8 +151,8 @@ namespace ViewModel
 
             using (SqlConnection connection = new(connectionString))
             {
-                string sCmd = "DELETE FROM dbo.Artikel " +
-                    "WHERE ArtikelID = @id";
+                string sCmd = "DELETE FROM dbo.Article " +
+                    "WHERE ArticleID = @id";
                 SqlCommand cmd = new(sCmd, connection);
                 cmd.Parameters.Add("@id", System.Data.SqlDbType.Int);
                 cmd.Parameters["@id"].Value = id;

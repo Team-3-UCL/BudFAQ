@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Model;
 
 namespace Model
 {
@@ -10,12 +11,12 @@ namespace Model
     {
         public int ArticleID { get; init; }
 
-        private string _name;
+        private string _title;
 
-        public string Name
+        public string Title
         {
-            get { return _name; }
-            set { _name = value; }
+            get { return _title; }
+            set { _title = value; }
         }
 
         private string _text;
@@ -26,14 +27,6 @@ namespace Model
             set { _text = value; }
         }
 
-        private string _link;
-
-        public string Link
-        {
-            get { return _link; }
-            set { _link = value; }
-        }
-
-       public List<string> Keywords { get; set; } = new();
+        public List<BrakeCaliper> BrakeCalipers { get; set; } = new();
     }
 }
