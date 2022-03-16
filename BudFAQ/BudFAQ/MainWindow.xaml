@@ -19,5 +19,7 @@
                FontSize="34"
                Margin="113,70,0,0" VerticalAlignment="Top"/>
         <Frame x:Name="Main" Source="Forside.xaml" NavigationUIVisibility="Hidden" Margin="0,130,0,0"/>
+        <Image Source="https://cdn.discordapp.com/attachments/938753274323030076/953637344098017281/Polish1.png" HorizontalAlignment="Left" Height="50" Margin="380,20,0,0" VerticalAlignment="Top" Width="49" PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown_1"/>
+        <Image Source="https://cdn.iconscout.com/icon/free/png-256/denmark-flag-3001688-2495999.png" HorizontalAlignment="Left" Height="42" Margin="20,24,0,0" VerticalAlignment="Top" Width="42" PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown"/>
     </Grid>
 </Window>

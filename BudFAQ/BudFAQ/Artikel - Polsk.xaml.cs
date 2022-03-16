@@ -16,24 +16,18 @@ using System.Windows.Shapes;
 namespace BudFAQ
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Artikel.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ArtikelPolsk : Page
     {
-        public MainWindow()
+        public ArtikelPolsk()
         {
-            //Lad os se om det virker zZzZzZzZ
             InitializeComponent();
         }
 
-        private void Image_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void btn_Back_Click(object sender, RoutedEventArgs e)
         {
-            Main.Source = new Uri("Forside.xaml", UriKind.Relative);
-        }
-
-        private void Image_PreviewMouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
-        {
-            Main.Source = new Uri("Forside - Polsk.xaml", UriKind.Relative);
+            this.NavigationService.GoBack();
         }
     }
 }
