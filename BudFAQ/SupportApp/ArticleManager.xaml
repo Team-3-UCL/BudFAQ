@@ -40,7 +40,7 @@
 
 
         </Grid>
-        <TextBox Margin="10,106,44,30" Grid.Column="2" LostFocus="TextBox_LostFocus" Text="{Binding ChosenArticle.Text}"></TextBox>
+        <TextBox Margin="10,106,44,30" Grid.Column="2" LostFocus="TextBox_LostFocus" Text="{Binding ChosenArticle.Text}" TextWrapping="Wrap" AcceptsReturn="True"></TextBox>
 
     </Grid>
 </Page>
