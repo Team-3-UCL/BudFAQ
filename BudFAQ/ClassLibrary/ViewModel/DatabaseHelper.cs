@@ -11,17 +11,21 @@ namespace ViewModel
     {
         private readonly string connectionString = "Server = 10.56.8.36; Database=P1DB03;User Id = P1-03; Password=OPENDB_03;";
 
-        public List<string> GetAllUsedKeywords()
+        public List<string> GetAllUsedBrakeCalipers()
         {
-            List<string> UsedKeywords = new();
+            List<string> UsedCalipers = new();
 
             using(SqlConnection connection = new(connectionString))
             {
-                string sCmd = "SELECT Word " +
-                    "FROM dbo.Keywords_Artikel " +
-                    "UNION " +
-                    "SELECT Word " +
-                    "FROM DBO.Keywords_Video;";
+                string sCmd = "SELECT Name " +
+                    "FROM dbo.BrakeCaliper_Artikel " +
+                    "JOIN dbo.BrakeCaliper " +
+                    "ON BrakeCaliper_Artikel.BrakeCaliperID = BrakeCaliper.BrakeCaliperID" +
+                    "UNION " + // union giver bare distinct v;rdier
+                    "SELECT Name " +
+                    "FROM dbo.BrakeCaliper_Video " +
+                    "JOIN dbo.BrakeCaliper " +
+                    "ON BrakeCaliper_Video.BrakeCaliperID = BrakeCaliper.BrakeCaliperID;";
 
                 connection.Open();
                 SqlCommand command = new(sCmd, connection);
@@ -30,12 +34,12 @@ namespace ViewModel
                 {
                     while (reader.Read())
                     {
-                        UsedKeywords.Add(reader["Word"].ToString());
+                        UsedCalipers.Add(reader["Word"].ToString());
                     }
                 }
             }
 
-            return UsedKeywords;
+            return UsedCalipers;
         }
     }
 }

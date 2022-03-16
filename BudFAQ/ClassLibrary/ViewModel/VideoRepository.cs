@@ -38,20 +38,27 @@ namespace ViewModel
                     }
                 }
 
-                sCmd = "Select * FROM dbo.Keywords_Video";
+                sCmd = "Select VideoID, BrakeCaliper_Video.BrakeCaliperID, Name, BudwegNumber FROM dbo.BrakeCaliper_Video " +
+                       "JOIN BrakeCaliper " +
+                       "ON BrakeCaliper.BrakeCaliperID = BrakeCaliper_Video.BrakeCaliperID;";
                 cmd = new(sCmd, connection);
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
                     {
                         int Id = (int)reader["VideoID"];
-                        string word = reader["Word"].ToString();
 
                         foreach (Video Video in videos)
                         {
                             if (Video.VideoID == Id)
                             {
-                                Video.Keywords.Add(word);
+                                BrakeCaliper brakeCaliper = new()
+                                {
+                                    BrakeCaliperID = (int)reader["VideoID"],
+                                    Name = reader["Name"].ToString(),
+                                    BudwegNumber = (int)reader["BudWegNumber"]
+                                };
+                                Video.BrakeCalipers.Add(brakeCaliper);
                                 break;
                             }
 
@@ -101,6 +108,19 @@ namespace ViewModel
                 cmd.Parameters["@id"].Value = updatedVideo.VideoID;
                 connection.Open();
                 cmd.ExecuteNonQuery();
+
+                cmd.CommandText = "Delete from dbo.BrakeCaliper_Video " +
+                    "WHERE VideoID = @id";
+                cmd.ExecuteNonQuery();
+
+                cmd.Parameters.Add("@caliperId", System.Data.SqlDbType.Int);
+                foreach (BrakeCaliper brakeCaliper in updatedVideo.BrakeCalipers)
+                {
+                    cmd.Parameters["@caliperId"].Value = brakeCaliper.BrakeCaliperID;
+                    cmd.CommandText = "INSERT INTO dbo.BrakeCaliper_Video(VideoID, BrakeCaliperID) " +
+                    "(@id, @caliperId)";
+                    cmd.ExecuteNonQuery();
+                }
             }
         }
 
@@ -133,7 +153,6 @@ namespace ViewModel
                         Link = reader["Link"].ToString()
                     };
                     videos.Add(video);
-
                 }
             }
         }
@@ -151,12 +170,15 @@ namespace ViewModel
 
             using (SqlConnection connection = new(connectionString))
             {
-                string sCmd = "DELETE FROM dbo.Video " +
+                string sCmd = "Delete from dbo.BrakeCaliper_Video " +
                     "WHERE VideoID = @id";
                 SqlCommand cmd = new(sCmd, connection);
                 cmd.Parameters.Add("@id", System.Data.SqlDbType.Int);
                 cmd.Parameters["@id"].Value = id;
                 connection.Open();
+                cmd.ExecuteNonQuery();
+                cmd.CommandText = "DELETE FROM dbo.Video " +
+                    "WHERE VideoID = @id";
                 cmd.ExecuteNonQuery();
             }
         }

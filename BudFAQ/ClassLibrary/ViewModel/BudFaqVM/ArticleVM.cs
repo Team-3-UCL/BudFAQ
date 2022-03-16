@@ -8,12 +8,12 @@ namespace ViewModel.BudFaqVM
 {
     public class ArticleVM
     {
-        private string name;
+        private string title;
 
-        public string Name
+        public string Title
         {
-            get { return name; }
-            set { name = value; }
+            get { return title; }
+            set { title = value; }
         }
 
         private string text;

@@ -44,8 +44,8 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <TextBlock TextDecorations="Underline" FontSize="14" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Height="18" Width="400">
-                        <Hyperlink Click="Article_RequestNavigate" Tag="{Binding Name}" CommandParameter="{Binding Text}">
-                            <TextBlock Text="{Binding Name}"></TextBlock>
+                        <Hyperlink Click="Article_RequestNavigate" Tag="{Binding Title}" CommandParameter="{Binding Text}">
+                            <TextBlock Text="{Binding Title}"></TextBlock>
                       </Hyperlink>
                     </TextBlock>
                 </DataTemplate>

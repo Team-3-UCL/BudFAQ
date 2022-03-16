@@ -51,7 +51,7 @@ namespace ViewModel
                         {
                             if (article.ArticleID == Id)
                             {
-                                var brakeCaliper = new BrakeCaliper()
+                                BrakeCaliper brakeCaliper = new()
                                 {
                                     BrakeCaliperID = (int)reader["BrakeCaliperID"],
                                     Name = reader["Name"].ToString(),
@@ -102,10 +102,23 @@ namespace ViewModel
                 cmd.Parameters["@id"].Value = updatedArticle.ArticleID;
                 connection.Open();
                 cmd.ExecuteNonQuery();
+
+                cmd.CommandText = "DELETE FROM dbo.BrakeCaliper_Article " +
+                    "WHERE ArticleID = @id";
+                cmd.ExecuteNonQuery();
+
+                cmd.Parameters.Add("@id", System.Data.SqlDbType.Int);
+                foreach (BrakeCaliper brakeCaliper in updatedArticle.BrakeCalipers)
+                {
+                    cmd.Parameters["@caliperId"].Value = brakeCaliper.BrakeCaliperID;
+                    cmd.CommandText = "INSERT INTO dbo.BrakeCaliper_Article(ArticleID, BrakeCaliperID) " +
+                    "(@id, @caliperId)";
+                    cmd.ExecuteNonQuery();
+                }
             }
         }
 
-        public void Add(string name, string text, List<BrakeCaliper> brakeCalipers)
+        public void Add(string name, string text)
         {
             using (SqlConnection connection = new(connectionString))
             {
@@ -130,8 +143,7 @@ namespace ViewModel
                     {
                         ArticleID = Id,
                         Title = name,
-                        Text = text,
-                        BrakeCalipers = brakeCalipers
+                        Text = text
                     };
                     articles.Add(article);
                 }
@@ -151,12 +163,16 @@ namespace ViewModel
 
             using (SqlConnection connection = new(connectionString))
             {
-                string sCmd = "DELETE FROM dbo.Article " +
+                string sCmd = "DELETE FROM dbo.BrakeCaliper_Article " +
                     "WHERE ArticleID = @id";
                 SqlCommand cmd = new(sCmd, connection);
                 cmd.Parameters.Add("@id", System.Data.SqlDbType.Int);
                 cmd.Parameters["@id"].Value = id;
                 connection.Open();
+                cmd.ExecuteNonQuery();
+
+                cmd.CommandText = "DELETE FROM dbo.Article " +
+                    "WHERE ArticleID = @id";
                 cmd.ExecuteNonQuery();
             }
         }
