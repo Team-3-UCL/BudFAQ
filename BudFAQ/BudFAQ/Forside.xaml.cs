@@ -62,5 +62,13 @@ public partial class Forside : Page
             
         }
 
+        private void RemoveText(object sender, MouseButtonEventArgs e)
+        {
+   
+            if (tb_Search.Text == "Indsæt keywords")
+            {
+                tb_Search.Clear();
+            }          
+        }
     }
 }
