@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics;
+using ViewModel.BudFaqVM;
 
 namespace BudFAQ
 {
@@ -41,7 +42,7 @@ namespace BudFAQ
             
             foreach(ArticleVM articleVM in Articles)
             {
-                if(articleVM.Name == chosenArticle)
+                if(articleVM.Title == chosenArticle)
                 {
                     artikelPolsk.Content.Text = articleVM.Text;
                     break;

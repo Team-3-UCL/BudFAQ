@@ -15,6 +15,9 @@ using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
+using ViewModel;
+using ViewModel.BudFaqVM;
+
 
 
 
@@ -38,13 +41,13 @@ public partial class ForsidePolsk : Page
             InitializeComponent();
             mvm = new();
             databaseHelper = new();
-            lb_SearchWords.ItemsSource = databaseHelper.getAllUsedKeywords();
+            lb_SearchWords.ItemsSource = databaseHelper.GetAllUsedBrakeCalipers();
         }
 
         private void btn_Search_Click(object sender, RoutedEventArgs e)
         {
-            mvm.searchquery(new string[] { tb_Search.Text });
-            OplysningerPolsk InformationPage = new OplysningerPolsk(mvm.ArticlesFound, mvm.Videosfound);
+            mvm.SearchQuery(new string[] { tb_Search.Text });
+            OplysningerPolsk InformationPage = new OplysningerPolsk(mvm.ArticlesFound, mvm.VideosFound);
 
             this.NavigationService.Navigate(InformationPage);
         }
