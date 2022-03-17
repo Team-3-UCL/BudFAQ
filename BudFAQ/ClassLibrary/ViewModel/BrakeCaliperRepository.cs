@@ -117,7 +117,7 @@ namespace ViewModel
 
             using (SqlConnection connection = new(connectionString))
             {
-                string sCmd = "DELETE FROM dbo.BrakeCaliper_Article" +
+                string sCmd = "DELETE FROM dbo.BrakeCaliper_Article " +
                     "WHERE BrakeCaliperID = @id";
                 SqlCommand cmd = new(sCmd, connection);
                 cmd.Parameters.Add("@id", System.Data.SqlDbType.Int);
@@ -125,7 +125,7 @@ namespace ViewModel
                 connection.Open();
                 cmd.ExecuteNonQuery();
 
-                cmd.CommandText = "DELETE FROM dbo.BrakeCaliper_Video" +
+                cmd.CommandText = "DELETE FROM dbo.BrakeCaliper_Video " +
                     "WHERE BrakeCaliperID = @id";
                 cmd.ExecuteNonQuery();
 
