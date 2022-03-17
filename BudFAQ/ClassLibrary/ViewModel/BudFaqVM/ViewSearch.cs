@@ -4,52 +4,61 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Model;
+using ViewModel.SupportAppVM;
 
-namespace BudFAQ
+namespace ViewModel.BudFaqVM
 {
-    class SearchViewModel
+    public class SearchViewModel
     {
         private ArticleRepository articleRepository;
         private VideoRepository videoRepository;
-        public List<ArticleVM> ArticlesFound;
-        public List<VideoVM> Videosfound;
+        public List<ArticleVM> ArticlesFound { get; set; }
+        public List<VideoVM> VideosFound { get; set; }
+        public ManualVM Manual { get; set; }
 
         public SearchViewModel()
         {
             articleRepository = new();
             videoRepository = new();
             ArticlesFound = new();
-            Videosfound = new();
+            VideosFound = new();
+            Manual = new()
+            {
+                Title = new ManualManager().Manual.Title,
+                Link = new ManualManager().Manual.Link
+            };
+
         }
 
 
 
-        private void searchforvideos(string[] keywords)
+        private void SearchForVideos(string[] keywords)
         {
             foreach (Video video in videoRepository.GetAll())
             {
                 foreach (string kword in keywords)
                 {
-                    if (video.Keywords.Any(stringName => stringName.ToUpper().Contains(kword.ToUpper())))
+                    if (video.BrakeCalipers.Any(brakeCaliper => brakeCaliper.Name.ToUpper().Contains(kword.ToUpper())))
                     {
                         VideoVM viewVideo = new() { Title = video.Title, Link = video.Link };
 
-                        Videosfound.Add(viewVideo);
+                        VideosFound.Add(viewVideo);
                     }
                         
                 }
             }
         }
 
-        private void searchForArticles(string[] keywords)
+        private void SearchForArticles(string[] keywords)
         {
             foreach (Article article in articleRepository.GetAll())
             {
                 foreach (string kword in keywords)
                 {
-                    if (article.Keywords.Any(stringName => stringName.ToUpper().Contains(kword.ToUpper())))
+                    if (article.BrakeCalipers.Any(brakeCaliper => brakeCaliper.Name.ToUpper().Contains(kword.ToUpper())))
                     {
-                        ArticleVM viewArticle = new() { Name = article.Name, Text = article.Text };
+                        ArticleVM viewArticle = new() { Title = article.Title, Text = article.Text };
 
                         ArticlesFound.Add(viewArticle);
                         break;
@@ -60,13 +69,13 @@ namespace BudFAQ
             
         }
 
-        public void searchquery(string[] keywords)
+        public void SearchQuery(string[] keywords)
         {
             ArticlesFound = new(); // nulstille listen
-            Videosfound = new(); // nulstille listen
+            VideosFound = new(); // nulstille listen
 
-            searchforvideos(keywords);
-            searchForArticles(keywords);
+            SearchForVideos(keywords);
+            SearchForArticles(keywords);
         }
     }
 }

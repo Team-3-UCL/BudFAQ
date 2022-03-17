@@ -11,6 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary\ClassLibrary.csproj" />
+
+  <ItemGroup>
     <Compile Update="Forside - Polsk.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

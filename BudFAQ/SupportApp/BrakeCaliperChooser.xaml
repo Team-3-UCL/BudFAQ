@@ -1,0 +1,46 @@
+﻿<Window x:Class="SupportApp.BrakeCaliperChooser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SupportApp"
+        mc:Ignorable="d"
+        Title="BrakeCaliperChooser" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <ListBox x:Name="UsedBrakeCalipers">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <CheckBox Content="{Binding Name}" IsChecked="True" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <ListBox x:Name="NonUsedBrakeCalipers" Grid.Column="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <CheckBox Content="{Binding Name}" IsChecked="False" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+
+        <Button Name="okButton" IsDefault="True" Grid.Row="1" HorizontalAlignment="Right" Width="50" Click="okButton_Click">OK</Button>
+        <Button Name="cancelButton" IsCancel="True" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Width="50" Click="cancelButton_Click">Cancel</Button>
+        
+
+    </Grid>
+</Window>

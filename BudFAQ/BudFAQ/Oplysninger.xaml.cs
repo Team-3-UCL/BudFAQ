@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics;
+using ViewModel.BudFaqVM;
+
 
 namespace BudFAQ
 {
@@ -21,32 +23,18 @@ namespace BudFAQ
     /// </summary>
     public partial class Oplysninger : Page
     {
-        public Oplysninger(List<ArticleVM> articles, List<VideoVM> videos)
+        public Oplysninger()
         {
             InitializeComponent();
-            Videos = videos;
-            Articles = articles;
-
             this.DataContext = this;
         }
-
-        public List<ArticleVM> Articles { get; set; }
-        public List<VideoVM> Videos { get; set; }
-
         public void Article_RequestNavigate(object sender, RoutedEventArgs e)
         {
-            string chosenArticle = ((Hyperlink)sender).Tag.ToString();
+            string articleTitle = ((Hyperlink)sender).Tag.ToString();
+            string articleText = ((Hyperlink)sender).CommandParameter.ToString();
             Artikel artikel = new();
-            artikel.ArtikelName.Content = chosenArticle;
-            
-            foreach(ArticleVM articleVM in Articles)
-            {
-                if(articleVM.Name == chosenArticle)
-                {
-                    artikel.Content.Text = articleVM.Text;
-                    break;
-                }
-            }
+            artikel.ArtikelName.Content = articleTitle;
+            artikel.Content.Text = articleText;
             this.NavigationService.Navigate(artikel);
         }
 

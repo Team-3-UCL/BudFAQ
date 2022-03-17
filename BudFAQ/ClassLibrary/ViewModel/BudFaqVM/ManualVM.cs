@@ -4,14 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BudFAQ
+namespace ViewModel.BudFaqVM
 {
-    public class Video
+    public class ManualVM
     {
-        public int VideoID { get; init; }
         public string Title { get; set; }
-        public int Length { get; set; }
         public string Link { get; set; }
-        public List<string> Keywords { get; set; } = new();
     }
 }
