@@ -36,5 +36,17 @@ namespace SupportApp
             VideoManager videoManager = new();
             this.NavigationService.Navigate(videoManager);
         }
+
+        private void BtnCalipers_Click(object sender, RoutedEventArgs e)
+        {
+            CaliperManager caliperManager = new();
+            this.NavigationService.Navigate(caliperManager);
+        }
+
+        private void BtnManual_Click(object sender, RoutedEventArgs e)
+        {
+            ManualManager manualManager = new();
+            this.NavigationService.Navigate(manualManager);
+        }
     }
 }

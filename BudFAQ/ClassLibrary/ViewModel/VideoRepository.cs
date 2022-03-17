@@ -54,7 +54,7 @@ namespace ViewModel
                             {
                                 BrakeCaliper brakeCaliper = new()
                                 {
-                                    BrakeCaliperID = (int)reader["VideoID"],
+                                    BrakeCaliperID = (int)reader["BrakeCaliperID"],
                                     Name = reader["Name"].ToString(),
                                     BudwegNumber = (int)reader["BudWegNumber"]
                                 };
@@ -118,7 +118,7 @@ namespace ViewModel
                 {
                     cmd.Parameters["@caliperId"].Value = brakeCaliper.BrakeCaliperID;
                     cmd.CommandText = "INSERT INTO dbo.BrakeCaliper_Video(VideoID, BrakeCaliperID) " +
-                    "(@id, @caliperId)";
+                    "VALUES (@id, @caliperId)";
                     cmd.ExecuteNonQuery();
                 }
             }

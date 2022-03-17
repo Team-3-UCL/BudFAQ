@@ -36,7 +36,7 @@
             <Label HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="30" Content="Titel" Margin="0,10,0,0"/>
             <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" Height="20" Margin="50,10,0,0" Text="{Binding ChosenVideo.Title}" LostFocus="TextBox_LostFocus" ></TextBox>
             <Label Content="Length" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,71,0,0"/>
-            <Button Content="Bremsekalibrer"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="10,157,0,0"></Button>
+            <Button Content="Bremsekalibrer"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="10,157,0,0" Click="btnBrakeCaliper_Click"></Button>
             <Label HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="30" Content="Link" Margin="0,41,0,0"/>
             <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" Height="20" Margin="50,41,0,0" Text="{Binding ChosenVideo.Link}" LostFocus="TextBox_LostFocus"></TextBox>
             <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" Height="20" Margin="50,74,0,0" PreviewTextInput="ValidateNumberInput" Text="{Binding ChosenVideo.Length}" LostFocus="TextBox_LostFocus"></TextBox>

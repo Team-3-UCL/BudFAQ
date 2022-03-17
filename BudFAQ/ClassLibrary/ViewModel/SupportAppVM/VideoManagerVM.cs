@@ -15,6 +15,26 @@ namespace ViewModel.SupportAppVM
         public Video ChosenVideo { get; set; }
         public ObservableCollection<Video> Videos { get; set; }
 
+        public List<BrakeCaliper> NonChosenBrakeCalipers
+        {
+            get
+            {
+                List<BrakeCaliper> result = new(); // nulstille
+                BrakeCaliperRepository brakeCaliperRepository = new();
+                foreach (BrakeCaliper brakeCaliper in brakeCaliperRepository.GetAll())
+                {
+                    if (!ChosenVideo.BrakeCalipers.Any(
+                        cal => cal.BrakeCaliperID == brakeCaliper.BrakeCaliperID
+                               && cal.BudwegNumber == brakeCaliper.BudwegNumber
+                               && cal.Name == brakeCaliper.Name))
+                    {
+                        result.Add(brakeCaliper);
+                    }
+                }
+                return result;
+            }
+        }
+
         public void AddDefaultVideo()
         {
             videoRepository.Add("specify title", 0, "specify link");

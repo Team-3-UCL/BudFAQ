@@ -12,8 +12,8 @@
         <ListBox>
             <Button x:Name="btnArticles" Click="btnArticles_Click">Articles</Button>
             <Button x:Name="btnVideos" Click="btnVideos_Click">Videos</Button>
-            <Button>Manual</Button>
-            <Button>Calipers</Button>
+            <Button x:Name="btnManual" Click="BtnManual_Click">Manual</Button>
+            <Button x:Name="btnCalipers" Click="BtnCalipers_Click">Calipers</Button>
         </ListBox>
         
     </Grid>

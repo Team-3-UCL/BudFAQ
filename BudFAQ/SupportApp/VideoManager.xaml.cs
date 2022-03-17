@@ -60,5 +60,18 @@ namespace SupportApp
         {
             mvm.UpdateSelectedVideo();
         }
+
+        private void btnBrakeCaliper_Click(object sender, RoutedEventArgs e)
+        {
+            BrakeCaliperChooser chooser = new(mvm.ChosenVideo.BrakeCalipers, mvm.NonChosenBrakeCalipers);
+            chooser.ShowDialog();
+
+            if (chooser.DialogResult == true)
+            {
+                mvm.ChosenVideo.BrakeCalipers = chooser.CheckedCalipers;
+                mvm.UpdateSelectedVideo();
+            }
+
+        }
     }
 }

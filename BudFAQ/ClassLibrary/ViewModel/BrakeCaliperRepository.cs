@@ -84,7 +84,7 @@ namespace ViewModel
                 cmd.Parameters.Add("@name", System.Data.SqlDbType.NVarChar);
                 cmd.Parameters["@name"].Value = name;
                 cmd.Parameters.Add("@number", System.Data.SqlDbType.Int);
-                cmd.Parameters["@length"].Value = budwegNumber;
+                cmd.Parameters["@number"].Value = budwegNumber;
                 connection.Open();
                 cmd.ExecuteNonQuery();
                 cmd.CommandText = "SELECT TOP 1 * FROM dbo.BrakeCaliper ORDER BY BrakeCaliperID DESC";

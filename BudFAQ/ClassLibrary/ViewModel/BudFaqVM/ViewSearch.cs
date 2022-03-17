@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Model;
+using ViewModel.SupportAppVM;
 
 namespace ViewModel.BudFaqVM
 {
@@ -22,19 +23,12 @@ namespace ViewModel.BudFaqVM
             videoRepository = new();
             ArticlesFound = new();
             VideosFound = new();
-
-            using(SqlConnection connection = new("Server = 10.56.8.36; Database=P1DB03;User Id = P1-03; Password=OPENDB_03;"))
+            Manual = new()
             {
-                connection.Open();
-                SqlCommand cmd = new("SELECT * FROM dbo.Manual", connection);
-                using(SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    Manual = new();
-                    reader.Read();
-                    Manual.Link = reader["Link"].ToString();
-                    Manual.Title = reader["Title"].ToString();
-                }
-            }
+                Title = new ManualManager().Manual.Title,
+                Link = new ManualManager().Manual.Link
+            };
+
         }
 
 
