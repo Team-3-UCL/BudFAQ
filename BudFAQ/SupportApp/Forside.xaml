@@ -9,11 +9,11 @@
       Title="Forside">
 
     <Grid>
-        <ListBox>
-            <Button x:Name="btnArticles" Click="btnArticles_Click">Articles</Button>
-            <Button x:Name="btnVideos" Click="btnVideos_Click">Videos</Button>
-            <Button x:Name="btnManual" Click="BtnManual_Click">Manual</Button>
-            <Button x:Name="btnCalipers" Click="BtnCalipers_Click">Calipers</Button>
+        <ListBox Padding="70">
+            <Button x:Name="btnArticles" Click="btnArticles_Click" Background="Green" Foreground="White" Height="70" Width="160" FontSize="20" FontWeight="DemiBold" Cursor="Hand">Artikler</Button>
+            <Button x:Name="btnVideos" Click="btnVideos_Click" Background="Green" Foreground="White" Height="70" Width="160" FontSize="20" FontWeight="DemiBold" Cursor="Hand">Videoer</Button>
+            <Button x:Name="btnManual" Click="BtnManual_Click" Background="Green" Foreground="White" Height="70" Width="160" FontSize="20" FontWeight="DemiBold" Cursor="Hand">Manual</Button>
+            <Button x:Name="btnCalipers" Click="BtnCalipers_Click" Background="Green" Foreground="White" Height="70" Width="160" FontSize="20" FontWeight="DemiBold" Cursor="Hand">Kalibre</Button>
         </ListBox>
         
     </Grid>

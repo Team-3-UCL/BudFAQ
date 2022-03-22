@@ -16,7 +16,7 @@
 
 
         <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
-            <Button Click="Button_Click">tilbage</Button>
+            <Button Click="Button_Click" Background="Green" Foreground="White">Tilbage</Button>
         </StackPanel>
 
         <Grid Grid.Column="0">
@@ -24,9 +24,9 @@
                 <ColumnDefinition Width="113*"/>
                 <ColumnDefinition Width="287*"/>
             </Grid.ColumnDefinitions>
-            <Label HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="30" Content="Title" Margin="10,10,0,0"/>
+            <Label HorizontalAlignment="Left" Foreground="Green" VerticalAlignment="Top" Width="42" Height="30" Content="Titel" Margin="10,10,0,0"/>
             <TextBox x:Name="tbTitle" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" Height="20" Margin="74,15,0,0" Text="{Binding Title}" LostFocus="TextBox_LostFocus" Grid.ColumnSpan="2" ></TextBox>
-            <Label Content="Link" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,71,0,0"/>
+            <Label Content="Link" Foreground="Green" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,68,0,0"/>
             <TextBox x:Name="tbLink" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" Height="20" Margin="74,71,0,0" Text="{Binding Link}" LostFocus="TextBox_LostFocus" Grid.ColumnSpan="2"></TextBox>
 
         </Grid>

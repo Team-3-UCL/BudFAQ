@@ -10,7 +10,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="4*" />
             <ColumnDefinition Width="10" />
             <ColumnDefinition Width="8*" />
         </Grid.ColumnDefinitions>
@@ -27,16 +27,16 @@
 
         </ListBox>
         <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
-            <Button Click="btnNewClick">Ny</Button>
-            <Button Click="btnRemoveClick">Fjern</Button>
-            <Button Click="Button_Click">tilbage</Button>
+            <Button Click="btnNewClick" Background="Green" Foreground="White">Ny</Button>
+            <Button Click="btnRemoveClick" Background="Green" Foreground="White">Fjern</Button>
+            <Button Click="Button_Click" Background="Green" Foreground="White">Tilbage</Button>
         </StackPanel>
 
         <Grid Grid.Column="2">
-            <Label HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="30" Content="Titel" Margin="0,10,0,0"/>
+            <Label HorizontalAlignment="Left" Foreground="Green" VerticalAlignment="Top" Width="100" Height="30" Content="Titel" Margin="0,10,0,0"/>
             <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" Height="20" Margin="50,10,0,0" Text="{Binding ChosenArticle.Title}" LostFocus="TextBox_LostFocus"/>
-            <Label Content="Tekst" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,70,0,0"/>
-            <Button Content="Bremsekalibrer"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="0,45,0,0" Click="btnBrakeCaliper_Click"></Button>
+            <Label Content="Tekst" Foreground="Green" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,70,0,0"/>
+            <Button Content="Bremsekalibrer" Background="Green" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="0,45,0,0" Click="btnBrakeCaliper_Click"></Button>
 
 
         </Grid>

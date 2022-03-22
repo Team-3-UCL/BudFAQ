@@ -38,8 +38,8 @@
         </ListBox>
 
 
-        <Button Name="okButton" IsDefault="True" Grid.Row="1" HorizontalAlignment="Right" Width="50" Click="okButton_Click">OK</Button>
-        <Button Name="cancelButton" IsCancel="True" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Width="50" Click="cancelButton_Click">Cancel</Button>
+        <Button Name="okButton" Background="Green" Foreground="White" IsDefault="True" Grid.Row="1" HorizontalAlignment="Right" Width="50" Click="okButton_Click">OK</Button>
+        <Button Name="cancelButton" Background="Green" Foreground="White" IsCancel="True" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Width="50" Click="cancelButton_Click">Cancel</Button>
         
 
     </Grid>

@@ -27,15 +27,15 @@
 
         </ListBox>
         <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
-            <Button Click="btnNewClick">Ny</Button>
-            <Button Click="btnRemoveClick">Fjern</Button>
-            <Button Click="Button_Click">tilbage</Button>
+            <Button Click="btnNewClick" Background="Green" Foreground="White">Ny</Button>
+            <Button Click="btnRemoveClick" Background="Green" Foreground="White">Fjern</Button>
+            <Button Click="Button_Click" Background="Green" Foreground="White">Tilbage</Button>
         </StackPanel>
 
         <Grid Grid.Column="2">
-            <Label HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="30" Content="Navn" Margin="10,10,0,0"/>
-            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" Height="20" Margin="74,15,0,0" Text="{Binding ChosenBrakeCaliper.Name}" LostFocus="TextBox_LostFocus" ></TextBox>
-            <Label Content="Budweg Nr" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,71,0,0"/>
+            <Label HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="30" Content="Navn" Margin="10,10,0,0" Foreground="Green"/>
+            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" Height="20" Margin="74,15,0,0" Text="{Binding ChosenBrakeCaliper.Name}" LostFocus="TextBox_LostFocus"></TextBox>
+            <Label Content="Budweg Nr" Foreground="Green" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,71,0,0"/>
             <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" Height="20" Margin="74,71,0,0" PreviewTextInput="ValidateNumberInput" Text="{Binding ChosenBrakeCaliper.BudwegNumber}" LostFocus="TextBox_LostFocus"></TextBox>
 
         </Grid>
